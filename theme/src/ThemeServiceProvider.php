@@ -50,7 +50,7 @@ class ThemeServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../stubs/react/resources/js' => resource_path('js'),
                 __DIR__.'/../stubs/react/resources/css' => resource_path('css'),
-                __DIR__.'/../stubs/react/resources/js' => resource_path('views')
+                __DIR__.'/../stubs/react/resources/views' => resource_path('views')
             ], 'react-theme');
         }
     }
