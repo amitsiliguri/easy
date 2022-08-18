@@ -2,6 +2,7 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import InputLebel from '@/Components/Form/Input/Label.vue';
 import InputError from '@/Components/Form/Input/Error.vue';
+import InputHint from '@/Components/Form/Input/Hint.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 </script>
 
@@ -24,6 +25,7 @@ import { Head } from '@inertiajs/inertia-vue3';
                 </div>
                 <input-lebel label="Some Input Label"/>
                 <input-error message="Some Input Error"/>
+                <input-hint hint="Some Input Hint"/>
             </div>
         </div>
     </BreezeAuthenticatedLayout>
