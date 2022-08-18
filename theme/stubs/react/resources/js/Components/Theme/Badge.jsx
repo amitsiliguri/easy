@@ -1,12 +1,12 @@
 import React from "react";
 
 const Badge = ({ bordered, align, badgeValue, buttonValue }) => {
-  const classNameFunction = () => {
-    let classNameList = "absolute h-[20px] min-w-[20px] rounded-full bg-blue-400 inline-flex items-center justify-center";
-    classNameList += bordered ? " border-2 border-white" : "";
+  //   const classNameFunction = () => {
+  //     let classNameList = "absolute h-[20px] min-w-[20px] rounded-full bg-blue-400 inline-flex items-center justify-center";
+  //     classNameList += bordered ? " border-2 border-white" : "";
 
-    return classNameList;
-  };
+  //     return classNameList;
+  //   };
   const styles = {
     component: {
       inset:
@@ -18,11 +18,15 @@ const Badge = ({ bordered, align, badgeValue, buttonValue }) => {
   return (
     <>
       <span className="relative inline-block">
-        {buttonValue && (
-            <span>{buttonValue}</span>
-        )}
-        
-        <span className={classNameFunction()} style={styles.component}>
+        {buttonValue && <span>{buttonValue}</span>}
+
+        <span
+          className={
+            "absolute h-[20px] min-w-[20px] rounded-full bg-blue-400 inline-flex items-center justify-center" +
+            (bordered ? " border-2 border-white" : "")
+          }
+          style={styles.component}
+        >
           {badgeValue && <span name="badgeContent">{badgeValue}</span>}
         </span>
       </span>
