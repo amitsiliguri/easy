@@ -20,7 +20,7 @@ export function setButtonColor() {
                 break;
     
             case 'default outlined':
-                setClasses = 'text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 border border-gray-800 dark:border-gray-100'
+                setClasses = 'text-gray-800 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 border border-gray-800 dark:border-gray-100'
                 break;
     
             case 'primary outlined':
