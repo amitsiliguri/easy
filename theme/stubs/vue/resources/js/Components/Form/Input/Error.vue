@@ -10,5 +10,5 @@ const props = defineProps({
 </script>
 
 <template>
-  <span class="text-sm text-orange-600">{{ props.message }}</span>
+  <span class="text-sm text-orange-600 px-2">{{ props.message }}</span>
 </template>

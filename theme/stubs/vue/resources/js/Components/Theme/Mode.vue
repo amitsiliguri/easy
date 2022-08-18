@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onUnmounted, watch } from 'vue';
-import EasyButton from '@/Components/Button.vue';
+import EasyButton from '@/Components/Theme/Button.vue';
 
 const isDark = ref(false);
 
@@ -28,5 +28,5 @@ const toggleClass = () => {
 
 </script>
 <template>
-    <easy-button @click="toggleTheme()" type="button">Mode Switcher</easy-button>
+    <easy-button @click="toggleTheme()" type="button" rounded elevate>Mode Switcher</easy-button>
 </template>
