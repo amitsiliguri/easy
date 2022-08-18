@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "@/Components/Button";
+import Button from "@/Components/Theme/Button";
 
 const Mode = () => {
   const [isDark, setIsDark] = useState(false);
@@ -20,8 +20,8 @@ const Mode = () => {
 }
   return (
     <>
-      <Button type="button">
-       <span onClick={toggleTheme}>Mode Switcher</span>
+      <Button type="button" onClick={toggleTheme}>
+       Mode Switcher
       </Button>
     </>
   );
