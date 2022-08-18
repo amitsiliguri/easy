@@ -4,6 +4,7 @@ import { Head } from "@inertiajs/inertia-react";
 import Input from "@/Components/Input";
 import Label from "@/Components/Label";
 import Button from "@/Components/Theme/Button";
+import LinkButton from "@/Components/Theme/LinkButton";
 
 export default function Dashboard(props) {
   const [name, setname] = useState("");
@@ -29,30 +30,85 @@ export default function Dashboard(props) {
             <div className="p-6 bg-white border-b border-gray-200">
               Hi {props.auth.user.name} Welcome to the Dashboard!
             </div>
-          </div><br></br>
-           <span>Small</span> <br></br>
-          <div>
-            <Button className='m-1' type="button" small={true}>Small  Button</Button>
-            <Button className='m-1' type="button" small={true} color="primary">Small  Button</Button>
-            <Button className='m-1' type="button" small={true} color="warning">Small  Button</Button>
-            <Button className='m-1' type="button" small={true} color="danger">Small  Button</Button>
-            <Button className='m-1' type="button" small={true} color="success">Small  Button</Button>
           </div>
-          <span>Outline</span> <br></br>
+          <br></br>
+          <span>Button</span> <br></br>
           <div>
-            <Button className='m-1' type="button" outlined={true}>Small  Button</Button>
-            <Button className='m-1' type="button" outlined={true} color="primary">Small  Button</Button>
-            <Button className='m-1' type="button" outlined={true} color="warning">Small  Button</Button>
-            <Button className='m-1' type="button" outlined={true} color="danger">Small  Button</Button>
-            <Button className='m-1' type="button" outlined={true} color="success">Small  Button</Button>
+            <Button className="m-1" type="button" small={true} color="primary">
+              Small Button
+            </Button>
+            <Button className="m-1" type="button" color="warning">
+              Flat Solid Button
+            </Button>
+            <Button
+              className="m-1"
+              type="button"
+              outlined={true}
+              color="warning"
+            >
+              Flat Outlined Button
+            </Button>
+            <Button
+              className="m-1"
+              type="button"
+              rounded={true}
+              elevate={true}
+              color="danger"
+            >
+              Elevated Solid Rounded Button
+            </Button>
+            <Button
+              className="m-1"
+              type="button"
+              rounded={true}
+              elevate={true}
+              outlined={true}
+              color="success"
+            >
+              Elevated Outlined Rounded Button
+            </Button>
           </div>
-          <span>Elevated solid</span> <br></br>
+          <span>Link Button</span> <br></br>
           <div>
-            <Button className='m-1' type="button" elevate={true}>Small  Button</Button>
-            <Button className='m-1' type="button" elevate={true} color="primary">Small  Button</Button>
-            <Button className='m-1' type="button" elevate={true} color="warning">Small  Button</Button>
-            <Button className='m-1' type="button" elevate={true} color="danger">Small  Button</Button>
-            <Button className='m-1' type="button" elevate={true} color="success">Small  Button</Button>
+            <LinkButton
+              className="m-1"
+              type="button"
+              small={true}
+              color="primary"
+            >
+              Small Button
+            </LinkButton>
+            <LinkButton className="m-1" type="button" color="warning">
+              Flat Solid Button
+            </LinkButton>
+            <LinkButton
+              href={route('dashboard123')}
+              className="m-1"
+              type="button"
+              outlined={true}
+              color="warning"
+            >
+              Flat Outlined Button
+            </LinkButton>
+            <LinkButton
+              className="m-1"
+              type="button"
+              rounded={true}
+              elevate={true}
+              color="danger"
+            >
+              Elevated Solid Rounded Button
+            </LinkButton>
+            <LinkButton
+              className="m-1"
+              type="button"
+              rounded={true}
+              elevate={true}
+              outlined={true}
+              color="success"
+            >
+              Elevated Outlined Rounded Button
+            </LinkButton>
           </div>
         </div>
       </div>
