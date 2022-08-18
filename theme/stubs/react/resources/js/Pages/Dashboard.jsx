@@ -30,17 +30,6 @@ export default function Dashboard(props) {
               Hi {props.auth.user.name} Welcome to the Dashboard!
             </div>
           </div><br></br>
-          {/* <Label forInput="name" value="Name" />
-          <Input
-            type="text"
-            name="name"
-            value={name}
-            className="mt-1 block w-full"
-            autoComplete="username"
-            isFocused={true}
-            handleChange={onHandleChange}
-          />
-          {name} */}
            <span>Small</span> <br></br>
           <div>
             <Button className='m-1' type="button" small={true}>Small  Button</Button>
