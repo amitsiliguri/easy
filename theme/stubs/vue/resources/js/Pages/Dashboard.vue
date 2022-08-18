@@ -8,6 +8,7 @@ import EasyButton from "@/Components/Theme/Button.vue";
 import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
 import EasyDialogModal from "@/Components/Theme/Modal/DialogModal.vue";
 import EasyCard from "@/Components/Theme/Card.vue";
+import EasyBadge from "@/Components/Theme/Badge.vue";
 
 import { Head } from "@inertiajs/inertia-vue3";
 
@@ -111,7 +112,18 @@ const toggleConfirmModal = (status) => {
           @click="toggleConfirmModal(!showConfirmModal)"
         >
           Danger Outlined Button
-        </easy-button>
+        </easy-button> 
+
+        <br>
+
+        <easy-badge align="right" class="mt-4">
+            <easy-button type="button" @click="addToast()">
+                <easy-icons icon="solid-person" /> Add notification
+            </easy-button>
+            <template #badgeContent>
+                <span class="p-1">100</span>
+            </template>
+        </easy-badge>
       </div>
     </div>
   </BreezeAuthenticatedLayout>
