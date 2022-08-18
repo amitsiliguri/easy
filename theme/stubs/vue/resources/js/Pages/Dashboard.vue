@@ -1,14 +1,20 @@
 <script setup>
+import { ref } from "vue";
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
 import EasyButton from "@/Components/Theme/Button.vue";
 import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
-
+import EasyDialogModal from "@/Components/Theme/Modal/DialogModal.vue";
 import EasyCard from "@/Components/Theme/Card.vue";
 
 import { Head } from "@inertiajs/inertia-vue3";
+
+const showConfirmModal = ref(false);
+const toggleConfirmModal = (status) => {
+  showConfirmModal.value = status;
+};
 </script>
 
 <template>
@@ -78,6 +84,34 @@ import { Head } from "@inertiajs/inertia-vue3";
 
           <template #footer> Card Footer </template>
         </easy-card>
+
+        <easy-dialog-modal
+          title="Modal Title"
+          :show="showConfirmModal"
+          @close="toggleConfirmModal(false)"
+        >
+          <template #content>
+            <span class="text-justify"
+              >The standard chunk of Lorem Ipsum used since the 1500s is
+              reproduced below for those interested. Sections 1.10.32 and
+              1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+              reproduced in their exact original form, accompanied by English
+              versions from the 1914 translation by H. Rackham.</span
+            >
+          </template>
+          <template #footer> Modal Footer </template>
+        </easy-dialog-modal>
+
+        <easy-button
+          class="my-1"
+          rounded
+          color="primary"
+          outlined
+          elevate
+          @click="toggleConfirmModal(!showConfirmModal)"
+        >
+          Danger Outlined Button
+        </easy-button>
       </div>
     </div>
   </BreezeAuthenticatedLayout>
