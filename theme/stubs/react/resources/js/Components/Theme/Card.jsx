@@ -6,6 +6,7 @@ const Card = ({outlined,elevate,body,header,footer}) => {
           "rounded-md bg-white dark:bg-gray-800";
         classNameList += outlined ? " border border-gray-200 dark:border-gray-900" : "";
         classNameList += elevate ? " shadow-md" : "";
+        
         return classNameList;
       };
   return (
