@@ -10,5 +10,5 @@ const props = defineProps({
 </script>
 
 <template>
-  <span class="text-sm dark:text-zinc-500">{{ props.hint }}</span>
+  <span class="text-sm dark:text-zinc-500 px-2">{{ props.hint }}</span>
 </template>
