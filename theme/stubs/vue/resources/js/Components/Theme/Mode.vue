@@ -19,7 +19,6 @@ watch(() => isDark.value, () => {
 })
 
 const toggleClass = () => {
-    console.log('hello');
     if (isDark.value) {
         document.body.classList.add('dark')
     } else {
