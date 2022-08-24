@@ -1,18 +1,25 @@
 <script setup>
 import { ref } from "vue";
+
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+
 import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
-import EasyButton from "@/Components/Theme/Button.vue";
-import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
-import EasyDialogModal from "@/Components/Theme/Modal/DialogModal.vue";
+import EasyCheckBox from "@/Components/Form/Input/Checkbox.vue";
+import EasyInput from "@/Components/Form/Input/Input.vue";
+
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
 import EasyIcons from "@/Components/Theme/Icons.vue";
+import EasyButton from "@/Components/Theme/Button.vue";
+import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
+import EasyDialogModal from "@/Components/Theme/Modal/DialogModal.vue";
+
 import { Head } from "@inertiajs/inertia-vue3";
 
 const showConfirmModal = ref(false);
+const inputData = ref("");
 const toggleConfirmModal = (status) => {
   showConfirmModal.value = status;
 };
@@ -35,10 +42,27 @@ const toggleConfirmModal = (status) => {
             Form Components
           </div>
         </div>
-        <input-lebel label="Some Input Label" /> <br />
+        <!-- <input-lebel label="Some Input Label" /> <br />
         <input-error message="Some Input Error" /> <br />
-        <input-hint hint="Some Input Hint" /> <br /><br />
+        <input-hint hint="Some Input Hint" /> <br /><br /> -->
 
+        <!-- <form action="#" method="post"> -->
+        <easy-input
+          icon="solid-person"
+          placeholder="Some placeholder"
+          id="email"
+          type="email"
+          hint="Some input hin"
+          error="Something went wrong with your input"
+          required
+          autofocus
+          autocomplete="username"
+          v-model="inputData"
+        />
+        {{inputData}} 
+        <!-- </form> -->
+
+        <br /><br />
         <span>Button</span> <br />
         <easy-button class="m-1" small> Small Button </easy-button>
         <easy-button class="m-1" color="primary" rounded>
@@ -124,7 +148,7 @@ const toggleConfirmModal = (status) => {
             <span class="p-1">100</span>
           </template>
         </easy-badge>
-      </div>      
+      </div>
     </div>
   </BreezeAuthenticatedLayout>
 </template>

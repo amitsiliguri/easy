@@ -39,6 +39,10 @@ export function setButtonColor() {
                 setClasses = 'text-lime-500 border border-lime-500 hover:bg-lime-500/10 active:bg-lime-500/20'
                 break;
     
+            case 'transparent':
+                setClasses = 'bg-transpanet text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-600'
+                break;
+    
             default:
                 setClasses = 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-600'
                 break;
