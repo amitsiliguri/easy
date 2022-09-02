@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 
@@ -8,6 +8,9 @@ import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
 import EasyCheckBox from "@/Components/Form/Input/Checkbox.vue";
 import EasyInput from "@/Components/Form/Input/Input.vue";
+import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
+import EasyToggle from "@/Components/Form/Input/Toggle.vue";
+import EasyRangeSlider from "@/Components/Form/Input/RangeSlider.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
@@ -20,12 +23,23 @@ import { Head } from "@inertiajs/inertia-vue3";
 
 const showConfirmModal = ref(false);
 const inputData = ref("");
+const inputTextAreaData = ref("");
+const inputToggle = ref(true);
+
+const input = reactive({
+    range: {
+        min: 10,
+        max: 70,
+    }
+});
+
 const toggleConfirmModal = (status) => {
   showConfirmModal.value = status;
 };
 </script>
 
 <template>
+
   <Head title="Dashboard" />
 
   <BreezeAuthenticatedLayout>
@@ -42,24 +56,22 @@ const toggleConfirmModal = (status) => {
             Form Components
           </div>
         </div>
-        <!-- <input-lebel label="Some Input Label" /> <br />
-        <input-error message="Some Input Error" /> <br />
-        <input-hint hint="Some Input Hint" /> <br /><br /> -->
 
         <!-- <form action="#" method="post"> -->
-        <easy-input
-          icon="solid-person"
-          placeholder="Some placeholder"
-          id="email"
-          type="email"
-          hint="Some input hin"
-          error="Something went wrong with your input"
-          required
-          autofocus
-          autocomplete="username"
-          v-model="inputData"
-        />
-        {{inputData}} 
+        <easy-input icon="solid-person" placeholder="Some placeholder" id="email" type="email" required autofocus
+          autocomplete="username" v-model="inputData" />
+        {{  inputData  }}
+
+        <easy-text-area v-model="inputTextAreaData" id="textArea" label="Text area label" />
+        {{  inputTextAreaData  }}
+
+        <easy-toggle v-model:checked="inputToggle" />
+
+        {{  inputToggle  }}
+
+        <easy-range-slider v-model="input.range" :min="0" :max="100" :step="1"/>
+
+        {{ input.range }}
         <!-- </form> -->
 
         <br /><br />
@@ -81,8 +93,7 @@ const toggleConfirmModal = (status) => {
           Primary Link
         </easy-link-button>
         <easy-link-button class="m-1" rounded color="danger" outlined elevate>
-          Danger Outlined Link </easy-link-button
-        ><br /><br />
+          Danger Outlined Link </easy-link-button><br /><br />
 
         <easy-card outlined>
           <template #header> Card Header </template>
@@ -110,31 +121,19 @@ const toggleConfirmModal = (status) => {
           <template #footer> Card Footer </template>
         </easy-card>
 
-        <easy-dialog-modal
-          title="Modal Title"
-          :show="showConfirmModal"
-          @close="toggleConfirmModal(false)"
-        >
+        <easy-dialog-modal title="Modal Title" :show="showConfirmModal" @close="toggleConfirmModal(false)">
           <template #content>
-            <span class="text-justify"
-              >The standard chunk of Lorem Ipsum used since the 1500s is
+            <span class="text-justify">The standard chunk of Lorem Ipsum used since the 1500s is
               reproduced below for those interested. Sections 1.10.32 and
               1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
               reproduced in their exact original form, accompanied by English
-              versions from the 1914 translation by H. Rackham.</span
-            >
+              versions from the 1914 translation by H. Rackham.</span>
           </template>
           <template #footer> Modal Footer </template>
         </easy-dialog-modal>
 
-        <easy-button
-          class="my-1"
-          rounded
-          color="primary"
-          outlined
-          elevate
-          @click="toggleConfirmModal(!showConfirmModal)"
-        >
+        <easy-button class="my-1" rounded color="primary" outlined elevate
+          @click="toggleConfirmModal(!showConfirmModal)">
           Danger Outlined Button
         </easy-button>
 
