@@ -33,9 +33,9 @@ const toggleConfirmModal = (status) => {
     >
     <easy-icons icon="solid-person" class="flex-none m-2"/>
     <button type="button" class="text-left grow py-2" @click="toggleConfirmModal(!showConfirmModal)">Hello</button>
-    <easy-button type="button" small color="transparent" class="m-2">
-        <easy-icons icon="close" :height="18" :width="18" class="text-orange-600"/>
-      </easy-button>
+        <easy-button type="button" small color="transparent" class="m-2">
+            <easy-icons icon="close" :height="18" :width="18" class="text-orange-600"/>
+        </easy-button>
     </div>
     <input-hint class="block mt-1" hint="props hint" />
     <input-error class="block" message="props error" />
@@ -46,8 +46,24 @@ const toggleConfirmModal = (status) => {
     maxWidth="sm"
     @close="toggleConfirmModal(false)"
   >
+  <template #title>
+    <div class="flex items-center">
+        <easy-button type="button" small color="transparent" class="m-2">
+            --
+        </easy-button>
+        :
+        <easy-button type="button" small color="transparent" class="m-2">
+            --
+        </easy-button>
+        :
+        <easy-button type="button" small color="transparent" class="m-2">
+            --
+        </easy-button>
+        <span>AM</span>
+    </div>
+  </template>
     <template #content>
-      <EasyClock class="m-auto"/>
+      <EasyClock/>
     </template>
     <template #footer> Modal Footer </template>
   </easy-dialog-modal>

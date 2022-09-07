@@ -1,62 +1,170 @@
 <template>
-    <div class="relative w-80 h-80 rounded-full bg-blue-500 " 
-    style="background-image: url('http://localhost/images/clock.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    "
-    >
-        <div
-            class="absolute text-center w-4 h-4 left-[70%] top-[9%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            05</div>
-        <div class="absolute text-center w-2 h-2 left-[75.2%] top-[12.5%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div class="absolute text-center w-2 h-2 left-[78.8%] top-[15.6%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div class="absolute text-center w-2 h-2 left-[82%] top-[19%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div class="absolute text-center w-2 h-2 left-[84.8%] top-[22.5%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div
-            class="absolute text-center w-4 h-4 left-[86%] top-[25%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            10</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[92%] top-[47.5%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            15</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[86.5%] top-[70%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            20</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[70%] top-[86.2%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            25</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[47.4%] top-[92%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            30</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[25.5%] top-[86.4%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            35</div>
-        <div class="absolute text-center w-2 h-2 top-[75.2%] left-[12.5%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div class="absolute text-center w-2 h-2 top-[78.8%] left-[15.6%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div class="absolute text-center w-2 h-2 top-[82%] left-[19%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div class="absolute text-center w-2 h-2 top-[84.8%] left-[22.5%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div
-            class="absolute text-center w-4 h-4 left-[9%] top-[70%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            40</div>
-        <div class="absolute text-center w-2 h-2 top-[53.4%] left-[4.3%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div class="absolute text-center w-2 h-2 top-[58.1%] left-[5.1%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div class="absolute text-center w-2 h-2 top-[62.6%] left-[6.2%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div class="absolute text-center w-2 h-2 top-[67%] left-[7.8%] bg-zinc-100 rounded-full cursor-pointer text-xs"></div>
-        <div
-            class="absolute text-center w-4 h-4 left-[3%] top-[47.5%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            45</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[9%] top-[25.5%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            50</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[25.5%] top-[9%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            55</div>
-        <div
-            class="absolute text-center w-4 h-4 left-[47.4%] top-[3%] bg-zinc-100 rounded-full cursor-pointer text-xs">
-            60</div>
-        <div class="absolute text-center w-2 h-2 left-[53.4%] top-[4.3%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div class="absolute text-center w-2 h-2 left-[58.05%] top-[5.1%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div class="absolute text-center w-2 h-2 left-[62.6%] top-[6.2%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
-        <div class="absolute text-center w-2 h-2 left-[67%] top-[7.8%] bg-zinc-100 rounded-full cursor-pointer text-xs opacity-50"></div>
+    <!-- sec -->
+    <!-- <div class="relative w-80 h-80 m-auto rounded-full bg-zinc-100 dark:bg-zinc-900">
+        <div class="absolute left-[70.00%] top-[09.00%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">05</div>
+        <div class="absolute text-center w-2 h-2 left-[75.00%] top-[12.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[78.70%] top-[15.60%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[81.95%] top-[18.85%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[84.80%] top-[22.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[86.00%] top-[25.00%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">10</div>
+        <div class="absolute text-center w-2 h-2 left-[89.55%] top-[30.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[91.30%] top-[35.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[92.45%] top-[39.55%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[93.20%] top-[44.15%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[92%] top-[47.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">15</div>
+        <div class="absolute text-center w-2 h-2 left-[93.20%] top-[53.45%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[92.45%] top-[58.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[91.20%] top-[62.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[89.55%] top-[66.90%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[86.5%] top-[70%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">20</div>
+        <div class="absolute text-center w-2 h-2 left-[84.80%] top-[75.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[81.95%] top-[78.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[78.70%] top-[81.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[75.00%] top-[84.80%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[70%] top-[86.2%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">25</div>
+        <div class="absolute text-center w-2 h-2 top-[93.20%] left-[53.45%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[92.45%] left-[58.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[91.20%] left-[62.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[89.55%] left-[66.90%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[47.4%] top-[92%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">30</div>
+        <div class="absolute text-center w-2 h-2 top-[89.55%] left-[30.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[91.30%] left-[35.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[92.45%] left-[39.55%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[93.20%] left-[44.15%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[25.5%] top-[86.4%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">35</div>
+        <div class="absolute text-center w-2 h-2 top-[75.00%] left-[12.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[78.70%] left-[15.60%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[81.95%] left-[18.85%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[84.80%] left-[22.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[9%] top-[70%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">40</div>
+        <div class="absolute text-center w-2 h-2 top-[53.43%] left-[4.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[58.05%] left-[5.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[62.61%] left-[6.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[66.96%] left-[7.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[3%] top-[47.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">45</div>
+        <div class="absolute text-center w-2 h-2 top-[30.70%] left-[7.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[35.00%] left-[6.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[39.55%] left-[5.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[44.15%] left-[4.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[9%] top-[25.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">50</div>
+        <div class="absolute text-center w-2 h-2 left-[12.70%] top-[22.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[15.60%] top-[18.85%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[18.85%] top-[15.60%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[22.50%] top-[12.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[25.5%] top-[9%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">55</div>
+        <div class="absolute text-center w-2 h-2 left-[30.70%] top-[07.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[35.00%] top-[06.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[39.55%] top-[05.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[44.15%] top-[04.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[47.4%] top-[3%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">60</div>
+        <div class="absolute text-center w-2 h-2 left-[53.43%] top-[04.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[58.05%] top-[05.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[62.61%] top-[06.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[66.96%] top-[07.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+
+
+
+    </div> -->
+    <!-- min -->
+    <!-- <div class="relative w-80 h-80 m-auto rounded-full bg-zinc-100 dark:bg-zinc-900">
+        <div class="absolute left-[70.00%] top-[09.00%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">05</div>
+        <div class="absolute text-center w-2 h-2 left-[75.00%] top-[12.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[78.70%] top-[15.60%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[81.95%] top-[18.85%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[84.80%] top-[22.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[86.00%] top-[25.00%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">10</div>
+        <div class="absolute text-center w-2 h-2 left-[89.55%] top-[30.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[91.30%] top-[35.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[92.45%] top-[39.55%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[93.20%] top-[44.15%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[92%] top-[47.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">15</div>
+        <div class="absolute text-center w-2 h-2 left-[93.20%] top-[53.45%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[92.45%] top-[58.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[91.20%] top-[62.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[89.55%] top-[66.90%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[86.5%] top-[70%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">20</div>
+        <div class="absolute text-center w-2 h-2 left-[84.80%] top-[75.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[81.95%] top-[78.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[78.70%] top-[81.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[75.00%] top-[84.80%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[70%] top-[86.2%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">25</div>
+        <div class="absolute text-center w-2 h-2 top-[93.20%] left-[53.45%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[92.45%] left-[58.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[91.20%] left-[62.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[89.55%] left-[66.90%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[47.4%] top-[92%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">30</div>
+        <div class="absolute text-center w-2 h-2 top-[89.55%] left-[30.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[91.30%] left-[35.00%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[92.45%] left-[39.55%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[93.20%] left-[44.15%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[25.5%] top-[86.4%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">35</div>
+        <div class="absolute text-center w-2 h-2 top-[75.00%] left-[12.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[78.70%] left-[15.60%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[81.95%] left-[18.85%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[84.80%] left-[22.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[9%] top-[70%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">40</div>
+        <div class="absolute text-center w-2 h-2 top-[53.43%] left-[4.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[58.05%] left-[5.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[62.61%] left-[6.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[66.96%] left-[7.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[3%] top-[47.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">45</div>
+        <div class="absolute text-center w-2 h-2 top-[30.70%] left-[7.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[35.00%] left-[6.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[39.55%] left-[5.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 top-[44.15%] left-[4.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[9%] top-[25.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">50</div>
+        <div class="absolute text-center w-2 h-2 left-[12.70%] top-[22.50%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[15.60%] top-[18.85%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[18.85%] top-[15.60%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[22.50%] top-[12.70%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[25.5%] top-[9%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">55</div>
+        <div class="absolute text-center w-2 h-2 left-[30.70%] top-[07.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[35.00%] top-[06.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[39.55%] top-[05.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[44.15%] top-[04.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+        <div class="absolute left-[47.4%] top-[3%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">60</div>
+        <div class="absolute text-center w-2 h-2 left-[53.43%] top-[04.35%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[58.05%] top-[05.10%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[62.61%] top-[06.25%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+        <div class="absolute text-center w-2 h-2 left-[66.96%] top-[07.95%] hover:bg-zinc-300 dark:hover:bg-zinc-700 rounded-full cursor-pointer text-xs hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"></div>
+
+    </div> -->
+    <!-- hrs -->
+    <div class="relative w-80 h-80 m-auto rounded-full bg-zinc-100 dark:bg-zinc-900">
+        <div class="absolute left-[70.00%] top-[09.00%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">1</div>
+        <div class="absolute left-[86.00%] top-[25.00%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">2</div>
+        <div class="absolute left-[92%] top-[47.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">3</div>
+        <div class="absolute left-[86.5%] top-[70%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">4</div>
+        <div class="absolute left-[70%] top-[86.2%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">5</div>
+        <div class="absolute left-[47.4%] top-[92%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">6</div>
+        <div class="absolute left-[25.5%] top-[86.4%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">7</div>
+        <div class="absolute left-[9%] top-[70%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">8</div>
+        <div class="absolute left-[3%] top-[47.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">9</div>
+        <div class="absolute left-[9%] top-[25.5%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">10</div>
+        <div class="absolute left-[25.5%] top-[9%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">11</div>
+        <div class="absolute left-[47.4%] top-[3%] text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8">12</div>
     </div>
 </template>
