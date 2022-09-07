@@ -83,10 +83,10 @@ watch(input.range, () => {
             </div>
         </div>
         <div class="flex justify-between items-center py-5">
-            <input type="number" :min="props.min" :max="input.range.max"
+            <input type="number" :min="props.min" :max="input.range.max" :step="props.step"
                 class="bg-transparent block w-full border-gray-400 hover:border-gray-900 dark:hover:border-gray-100 focus:border-blue-600 dark:focus:border-blue-400 rounded w-24"
                 v-model="input.range.min">
-            <input type="number" :min="input.range.min" :max="props.max"
+            <input type="number" :min="input.range.min" :max="props.max" :step="props.step"
                 class="bg-transparent block w-full border-gray-400 hover:border-gray-900 dark:hover:border-gray-100 focus:border-blue-600 dark:focus:border-blue-400 rounded w-24"
                 v-model="input.range.max">
         </div>

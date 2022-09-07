@@ -25,9 +25,9 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="rounded-md bg-white dark:bg-gray-800"
-        :class="[(props.elevate) ? 'shadow-md' : '', (props.outlined) ? 'border border-gray-200 dark:border-gray-900' : '']">
-        <div v-if="$slots.header" class="py-5 px-2 border-b border-gray-200 dark:border-gray-900">
+    <div class="rounded-md bg-white dark:bg-zinc-800"
+        :class="[(props.elevate) ? 'shadow-md' : '', (props.outlined) ? 'border border-zinc-200 dark:border-zinc-900' : '']">
+        <div v-if="$slots.header" class="py-5 px-2 border-b border-zinc-200 dark:border-zinc-900">
             <slot name="header"></slot>
         </div>
         <div class="py-5 px-2">
