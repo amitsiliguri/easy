@@ -13,14 +13,7 @@ const props = defineProps({
         default() {
             return false
         }
-    },
-    bgUrl: {
-        type: String,
-        required: false,
-        default() {
-            return ''
-        }
-    },
+    }
 });
 </script>
 
