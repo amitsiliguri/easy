@@ -3,9 +3,6 @@ import { ref, reactive } from "vue";
 
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 
-import InputLebel from "@/Components/Form/Input/Label.vue";
-import InputError from "@/Components/Form/Input/Error.vue";
-import InputHint from "@/Components/Form/Input/Hint.vue";
 import EasyCheckBox from "@/Components/Form/Input/Checkbox.vue";
 import EasyTimePicker from "@/Components/Form/Input/TimePicker.vue";
 import EasyRadioButtons from "@/Components/Form/Input/RadioButtons.vue";
@@ -13,6 +10,8 @@ import EasyInput from "@/Components/Form/Input/Input.vue";
 import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
 import EasyToggle from "@/Components/Form/Input/Toggle.vue";
 import EasyRangeSlider from "@/Components/Form/Input/RangeSlider.vue";
+
+import EasyClock from "@/Components/Form/Input/Clock.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
@@ -35,7 +34,7 @@ const input = reactive({
   text:'',
   number:'',
   singleCheckBox: true,
-  // radio: false,
+  time: '23:23:23',
   radioGroup:{
     options: [
       {
@@ -58,6 +57,7 @@ const input = reactive({
 const toggleConfirmModal = (status) => {
   showConfirmModal.value = status;
 };
+
 </script>
 
 <template>
@@ -72,7 +72,6 @@ const toggleConfirmModal = (status) => {
 
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
 
         <form action="#">
           <easy-card outlined>
@@ -101,14 +100,14 @@ const toggleConfirmModal = (status) => {
               v-model="input.number"
               class="my-2"
             />
-           
+
             <easy-text-area
               v-model="input.textArea"
               id="textArea"
               label="Text area label"
               class="my-2"
             />
-            
+
             <easy-range-slider
               v-model="input.range"
               :min="400"
@@ -119,11 +118,9 @@ const toggleConfirmModal = (status) => {
 
             <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkboxexample" label="Some Check Box Label"/>
 
-            <!-- <EasyRadioButton v-model:checked="input.radio" id="radioexample1" name="radio" label="Some Radio Label 1"/> -->
-            
             <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radiogroupexample" name="radiogroupexample" label="Some Radio Label 2"/>
-           
-            <EasyTimePicker />
+
+            <EasyTimePicker v-model="input.time"/>
             <template #footer> Card Footer </template>
           </easy-card>
         </form>
