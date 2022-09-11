@@ -9,7 +9,7 @@ const emit = defineEmits(["update:checked"]);
 
 const props = defineProps({
   checked: {
-    type: [Array, Boolean],
+    type: [String, Boolean],
     default: false,
   },
   value: {
@@ -44,8 +44,19 @@ const props = defineProps({
     default() {
       return "";
     },
-  }
+  },
+  name: {
+    type: String,
+    required: false,
+    default() {
+      return "";
+    },
+  },
 });
+
+const setName = () => {
+  return (props.name !== '') ? props.name : props.id
+};
 
 const proxyChecked = computed({
   get() {
@@ -57,28 +68,33 @@ const proxyChecked = computed({
   },
 });
 </script>
-
+    
 <template>
-  <fieldset>
     <div>
       <input
-        type="checkbox"
+        type="radio"
         :id="props.id"
         :value="value"
+        :name="setName()"
         v-model="proxyChecked"
         class="
-          rounded-sm
-          border-2 border-zinc-500
-          dark:border-zinc-100 dark:checked:border-indigo-500
-          bg-transparent
-          focus:border-zinc-500
           w-5
           h-5
+          border-2
+          bg-transparent
+          checked:w-2.5
+          checked:h-2.5
+          checked:ml-[5px]
+          checked:mr-[5px]
+          checked:outline-none
+          checked:outline-2
+          checked:ring-2
+          checked:ring-offset-4
+          checked:ring-offset-white
+          dark:checked:ring-offset-zinc-800
+          checked:ring-indigo-500
         "
       />
       <input-lebel v-if="!props.solo" :for="props.id" :label="props.label" />
     </div>
-    <input-hint v-if="!props.solo" class="block mt-1" :hint="props.hint" />
-    <input-error v-if="!props.solo" class="block" :message="props.error" />
-  </fieldset>
 </template>

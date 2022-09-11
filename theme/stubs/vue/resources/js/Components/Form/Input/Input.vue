@@ -117,7 +117,7 @@ const clear = () => {
 
 <template>
   <fieldset>
-    <input-lebel v-if="!props.solo" :for="props.id" :label="props.label" :class="{'text-blue-600 dark:text-blue-400': activeInput}"/>
+    <input-lebel v-if="!props.solo" :for="props.id" :label="props.label" :active="activeInput"/>
     <div class="relative mt-1">
       <label
         v-if="!props.solo && props.icon !== ''"
@@ -138,9 +138,10 @@ const clear = () => {
           bg-transparent
           block
           w-full
-          border-gray-400
-          hover:border-gray-900
-          dark:hover:border-gray-100
+          border-zinc-400
+          dark:border-zinc-600
+          hover:border-zinc-900
+          dark:hover:border-zinc-500
           focus:border-blue-600
           dark:focus:border-blue-400
           rounded

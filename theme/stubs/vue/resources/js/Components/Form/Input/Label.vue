@@ -16,7 +16,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <label class="text-sm bg-inherit px-2" :class="{ 'text-blue-400': active, '': !active }">
+    <label class="text-sm bg-inherit px-2 cursor-pointer" :class="{ 'text-blue-400': active, '': !active }">
         {{ props.label }}
     </label>
 </template>
