@@ -3,10 +3,9 @@ import { ref, reactive } from "vue";
 
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 
-import InputLebel from "@/Components/Form/Input/Label.vue";
-import InputError from "@/Components/Form/Input/Error.vue";
-import InputHint from "@/Components/Form/Input/Hint.vue";
 import EasyCheckBox from "@/Components/Form/Input/Checkbox.vue";
+import EasyTimePicker from "@/Components/Form/Input/TimePicker.vue";
+import EasyRadioButtons from "@/Components/Form/Input/RadioButtons.vue";
 import EasyInput from "@/Components/Form/Input/Input.vue";
 import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
 import EasyToggle from "@/Components/Form/Input/Toggle.vue";
@@ -22,24 +21,44 @@ import EasyDialogModal from "@/Components/Theme/Modal/DialogModal.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 
 const showConfirmModal = ref(false);
-const inputData = ref("");
-const inputTextAreaData = ref("");
-const inputToggle = ref(true);
 
 const input = reactive({
-    range: {
-        min: 10,
-        max: 70,
-    }
+  toggle: true,
+  range: {
+    min: 410,
+    max: 670,
+  },
+  textArea: '',
+  text:'',
+  number:'',
+  singleCheckBox: true,
+  time: '',
+  radioGroup:{
+    options: [
+      {
+        value: 'value1',
+        label: 'label 1'
+      },
+      {
+        value: 'value2',
+        label: 'label 2'
+      },
+      {
+        value: 'value3',
+        label: 'label 3'
+      },
+    ],
+    value: 'value2'
+  }
 });
 
 const toggleConfirmModal = (status) => {
   showConfirmModal.value = status;
 };
+
 </script>
 
 <template>
-
   <Head title="Dashboard" />
 
   <BreezeAuthenticatedLayout>
@@ -51,28 +70,59 @@ const toggleConfirmModal = (status) => {
 
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-          <div class="p-6 bg-white border-b border-gray-200">
-            Form Components
-          </div>
-        </div>
 
-        <!-- <form action="#" method="post"> -->
-        <easy-input icon="solid-person" placeholder="Some placeholder" id="email" type="email" required autofocus
-          autocomplete="username" v-model="inputData" />
-        {{  inputData  }}
+        <form action="#">
+          <easy-card outlined>
+            <template #header> Card Header </template>
 
-        <easy-text-area v-model="inputTextAreaData" id="textArea" label="Text area label" />
-        {{  inputTextAreaData  }}
+            <easy-toggle v-model:checked="input.toggle" class="my-2"/>
 
-        <easy-toggle v-model:checked="inputToggle" />
+            <easy-input
+              icon="solid-person"
+              placeholder="Some placeholder"
+              id="email"
+              type="email"
+              required
+              autofocus
+              autocomplete="username"
+              v-model="input.text"
+              class="my-2"
+            />
 
-        {{  inputToggle  }}
+            <easy-input
+              icon="solid-person"
+              placeholder="Some number placeholder"
+              id="number"
+              type="number"
+              required
+              v-model="input.number"
+              class="my-2"
+            />
 
-        <easy-range-slider v-model="input.range" :min="0" :max="100" :step="1"/>
+            <easy-text-area
+              v-model="input.textArea"
+              id="textArea"
+              label="Text area label"
+              class="my-2"
+            />
 
-        {{ input.range }}
-        <!-- </form> -->
+            <easy-range-slider
+              v-model="input.range"
+              :min="400"
+              :max="1000"
+              :step="10"
+              class="my-2"
+            />
+
+            <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkBoxExample" label="Some Check Box Label"/>
+
+            <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radioGroupExample" name="radioGroupExample" label="Some Radio Label 2"/>
+
+            <EasyTimePicker v-model="input.time"/>
+            <template #footer> Card Footer </template>
+          </easy-card>
+        </form>
+        {{input}}
 
         <br /><br />
         <span>Button</span> <br />
@@ -93,7 +143,8 @@ const toggleConfirmModal = (status) => {
           Primary Link
         </easy-link-button>
         <easy-link-button class="m-1" rounded color="danger" outlined elevate>
-          Danger Outlined Link </easy-link-button><br /><br />
+          Danger Outlined Link </easy-link-button
+        ><br /><br />
 
         <easy-card outlined>
           <template #header> Card Header </template>
@@ -121,19 +172,31 @@ const toggleConfirmModal = (status) => {
           <template #footer> Card Footer </template>
         </easy-card>
 
-        <easy-dialog-modal title="Modal Title" :show="showConfirmModal" @close="toggleConfirmModal(false)">
+        <easy-dialog-modal
+          title="Modal Title"
+          :show="showConfirmModal"
+          @close="toggleConfirmModal(false)"
+        >
           <template #content>
-            <span class="text-justify">The standard chunk of Lorem Ipsum used since the 1500s is
+            <span class="text-justify"
+              >The standard chunk of Lorem Ipsum used since the 1500s is
               reproduced below for those interested. Sections 1.10.32 and
               1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
               reproduced in their exact original form, accompanied by English
-              versions from the 1914 translation by H. Rackham.</span>
+              versions from the 1914 translation by H. Rackham.</span
+            >
           </template>
           <template #footer> Modal Footer </template>
         </easy-dialog-modal>
 
-        <easy-button class="my-1" rounded color="primary" outlined elevate
-          @click="toggleConfirmModal(!showConfirmModal)">
+        <easy-button
+          class="my-1"
+          rounded
+          color="primary"
+          outlined
+          elevate
+          @click="toggleConfirmModal(!showConfirmModal)"
+        >
           Danger Outlined Button
         </easy-button>
 

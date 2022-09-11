@@ -90,8 +90,9 @@ const clear = () => {
           pr-10
           w-full
           border-gray-400
+          dark:border-zinc-600
           hover:border-gray-900
-          dark:hover:border-gray-100
+          dark:hover:border-zinc-500
           focus:border-blue-600
           dark:focus:border-blue-400
           rounded
