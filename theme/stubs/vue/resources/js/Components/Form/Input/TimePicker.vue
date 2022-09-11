@@ -43,19 +43,25 @@ const setPropsTime = (time) => {
     }
     data.time.min = (time[1] < 60) ? time[1] : 0
     data.time.sec = (time[2] < 60) ? time[2] : 0
+    setHandle()
 };
 
 const setPosition = (number, align = 0.5) => {
-    let gap = (data.active === 'hr') ? 30 : 6;
-    let angle = gap * parseInt(number)
     let radius = 10 - 1;
-    angle = (angle >= 360) ? angle - 360 : angle
-    angle += 270
+    let angle = getAngle(number)
     let getY = Math.sin(angle * Math.PI / 180) * radius
     let getX = Math.cos(angle * Math.PI / 180) * radius
     getY = (getY + 10) - align
     getX = (getX + 10) - align
     return 'top:' + parseFloat(getY).toFixed(2) + 'rem; left:' + parseFloat(getX).toFixed(2) + 'rem'
+};
+
+const getAngle = (number) => {
+    let gap = (data.active === 'hr') ? 30 : 6;
+    let angle = gap * parseInt(number)
+    angle += 270
+    angle = (angle >= 360) ? angle - 360 : angle
+    return angle
 };
 
 const canPrintNumber = (number) => {
@@ -69,18 +75,25 @@ const setTime = (value, type) => {
     switch (type) {
         case 'hr':
             data.time.hr = value
-            data.active = 'min'
+            setActive('min')
             break;
         case 'min':
             data.time.min = value
-            data.active = 'sec'
+            setActive('sec')
             break;
         default:
             data.time.sec = value
             break;
     }
     setDefaultTime()
+    setHandle()
     emitValue()
+};
+
+const setActive = (type) => {
+    setTimeout(() => {
+        data.active = type
+    }, "200")
 };
 
 const setDefaultTime = () => {
@@ -116,62 +129,101 @@ const setAmPm = () => {
     emitValue()
 };
 
+const setHandle = () => {
+    let angle = 270
+    switch (data.active) {
+        case 'hr':
+            if (data.time.hr !== "--") {
+                angle = getAngle(parseInt(data.time.hr))
+            }
+            break;
+        case 'min':
+            if (data.time.min !== "--") {
+                angle = getAngle(parseInt(data.time.min))
+            }
+            break;
+        case 'sec':
+            if (data.time.sec !== "--") {
+                angle = getAngle(parseInt(data.time.sec))
+            }
+            break;
+        default:
+            angle = 270
+            break;
+    }
+    return "transform: rotate(" + angle + "deg) scaleY(1); transform-origin: center left;"
+};
 </script>
 
 <template>
-    <card outlined class="w-96">
+    <card outlined header-bg="bg-blue-500">
         <template #header>
-            <span @click="data.active = 'hr'" class="cursor-pointer">
+            <span @click="setActive('hr')" class="cursor-pointer"
+                :class="{'text-white dark:text-zinc-800' : (data.active == 'hr')}">
                 {{ showTime(data.time.hr) }}
             </span>
             :
-            <span @click="data.active = 'min'" class="cursor-pointer">
+            <span @click="setActive('min')" class="cursor-pointer "
+                :class="{'text-white dark:text-zinc-800' : (data.active == 'min')}">
                 {{ showTime(data.time.min) }}
             </span>
             :
-            <span @click="data.active = 'sec'" class="cursor-pointer">
+            <span @click="setActive('sec')" class="cursor-pointer"
+                :class="{'text-white dark:text-zinc-800' : (data.active == 'sec')}">
                 {{ showTime(data.time.sec) }}
             </span>
             <span class="ml-2">{{data.time.meridiem}}</span>
         </template>
-        <div class="p-2 overflow-y-auto max-h-[70vh] bg-inherit">
+        <div class="p-2 bg-inherit">
             <div ref="clock"
                 class="relative w-80 h-80 m-auto rounded-full bg-zinc-100 dark:bg-zinc-900 transition duration-200">
-                <template v-if="data.active == 'hr'">
-                    <template v-for="(hr, index) in 12" :key="index">
-                        <div class="absolute text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
-                            :style="setPosition(hr)" @click="setTime(hr, 'hr')">
-                            {{ showTime( hr ) }}
-                        </div>
-                    </template>
-                </template>
+                <transition enter-active-class="ease-out duration-300" enter-from-class="opacity-0"
+                    enter-to-class="opacity-100" leave-active-class="ease-in duration-300"
+                    leave-from-class="opacity-100" leave-to-class="opacity-0">
 
-                <template v-if="data.active == 'min'">
-                    <template v-for="(min, index) in 60" :key="index">
-                        <div v-if="canPrintNumber(min - 1)"
-                            class="absolute text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
-                            :style="setPosition(min - 1)" @click="setTime(min - 1, 'min')">
-                            {{ showTime( min - 1 ) }}
-                        </div>
-                        <div v-else
-                            class="absolute text-center w-2 h-2 rounded-full cursor-pointer bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"
-                            :style="setPosition(min - 1, 0.25)" @click="setTime(min - 1, 'min')"></div>
-                    </template>
-                </template>
+                    <div v-if="data.active == 'hr'" class="w-80 h-80">
+                        <template v-for="(hr, index) in 12" :key="index">
+                            <div class="absolute text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
+                                :style="setPosition(hr)" @click="setTime(hr, 'hr')">
+                                {{ showTime( hr ) }}
+                            </div>
+                        </template>
+                    </div>
 
-                <template v-if="data.active == 'sec'">
-                    <template v-for="(sec, index) in 60" :key="index">
-                        <div v-if="canPrintNumber(sec - 1)"
-                            class="absolute text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
-                            :style="setPosition(sec - 1)" @click="setTime(sec - 1, 'sec')">
-                            {{ showTime( sec - 1 ) }}
-                        </div>
-                        <div v-else
-                            class="absolute text-center w-2 h-2 rounded-full cursor-pointer bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"
-                            :style="setPosition(sec - 1, 0.25)" @click="setTime(sec - 1, 'sec')"></div>
-                    </template>
-                </template>
-                <div class="absolute text-center w-8 h-8 rounded-full left-[9rem] top-[9rem] flex align-center justify-center cursor-pointer hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
+                    <div v-else-if="data.active == 'min'" class="w-full h-full">
+                        <template v-for="(min, index) in 60" :key="index">
+                            <div v-if="canPrintNumber(min - 1)"
+                                class="absolute text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
+                                :style="setPosition(min - 1)" @click="setTime(min - 1, 'min')">
+                                {{ showTime( min - 1 ) }}
+                            </div>
+                            <div v-else
+                                class="absolute text-center w-2 h-2 rounded-full cursor-pointer bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"
+                                :style="setPosition(min - 1, 0.25)" @click="setTime(min - 1, 'min')"></div>
+                        </template>
+                    </div>
+
+                    <div v-else-if="data.active == 'sec'" class="w-full h-full">
+                        <template v-for="(sec, index) in 60" :key="index">
+                            <div v-if="canPrintNumber(sec - 1)"
+                                class="absolute text-center w-4 h-4 rounded-full cursor-pointer text-xs hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
+                                :style="setPosition(sec - 1)" @click="setTime(sec - 1, 'sec')">
+                                {{ showTime( sec - 1 ) }}
+                            </div>
+                            <div v-else
+                                class="absolute text-center w-2 h-2 rounded-full cursor-pointer bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-2 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-4"
+                                :style="setPosition(sec - 1, 0.25)" @click="setTime(sec - 1, 'sec')"></div>
+                        </template>
+                    </div>
+
+                </transition>
+
+
+                <div class="w-32 h-1 bg-blue-300 absolute left-[10rem] top-[9.9rem] rounded ease-out duration-200"
+                    :style="setHandle()"></div>
+
+
+                <div class="absolute text-center w-8 h-8 rounded-full left-[9rem] top-[9rem] flex align-center justify-center cursor-pointer bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:ring-4 hover:ring-zinc-200 dark:hover:ring-zinc-800 ease-in-out duration-200 active:ring-8"
                     @click="setAmPm()">
                     <easy-icons :icon="(data.time.meridiem === 'AM') ? 'light' : 'dark'" />
                 </div>

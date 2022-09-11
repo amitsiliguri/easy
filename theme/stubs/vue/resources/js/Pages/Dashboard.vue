@@ -11,8 +11,6 @@ import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
 import EasyToggle from "@/Components/Form/Input/Toggle.vue";
 import EasyRangeSlider from "@/Components/Form/Input/RangeSlider.vue";
 
-import EasyClock from "@/Components/Form/Input/Clock.vue";
-
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
 import EasyIcons from "@/Components/Theme/Icons.vue";
@@ -34,7 +32,7 @@ const input = reactive({
   text:'',
   number:'',
   singleCheckBox: true,
-  time: '23:23:23',
+  time: '',
   radioGroup:{
     options: [
       {
@@ -116,9 +114,9 @@ const toggleConfirmModal = (status) => {
               class="my-2"
             />
 
-            <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkboxexample" label="Some Check Box Label"/>
+            <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkBoxExample" label="Some Check Box Label"/>
 
-            <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radiogroupexample" name="radiogroupexample" label="Some Radio Label 2"/>
+            <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radioGroupExample" name="radioGroupExample" label="Some Radio Label 2"/>
 
             <EasyTimePicker v-model="input.time"/>
             <template #footer> Card Footer </template>
