@@ -6,7 +6,6 @@ import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
 import EasyRadioButton from "@/Components/Form/Input/RadioButton.vue";
 
-// const emit = defineEmits(["update:checked"]);
 const emit = defineEmits(["update:modelValue"]);
 
 const props = defineProps({
@@ -30,7 +29,6 @@ const props = defineProps({
       return "CheckBox Input Label";
     },
   },
-
   hint: {
     type: String,
     required: false,
@@ -52,6 +50,12 @@ const props = defineProps({
       return "";
     },
   },
+  solo: {
+    type: Boolean,
+    default() {
+      return false;
+    },
+  },
 });
 
 const proxyChecked = computed({
@@ -67,8 +71,8 @@ const proxyChecked = computed({
         
 <template>
   <fieldset>
-    <input-lebel :label="props.label" class="block my-2"/>
-    <div v-for="(option, index) in options" :key="index" class="block m-2">
+    <input-lebel v-if="!props.solo" :label="props.label" class="block my-2"/>
+    <div v-for="(option, index) in options" :key="index" class="block mx-2 py-3">
       <easy-radio-button
         v-model:checked="proxyChecked"
         :id="props.id + '-' + index"
@@ -77,7 +81,7 @@ const proxyChecked = computed({
         :value="option.value"
       />
     </div>
-    <input-hint class="block mt-1" :hint="props.hint" />
-    <input-error class="block" :message="props.error" />
+    <input-hint v-if="!props.solo" class="block mt-1" :hint="props.hint" />
+    <input-error v-if="!props.solo" class="block" :message="props.error" />
   </fieldset>
 </template>

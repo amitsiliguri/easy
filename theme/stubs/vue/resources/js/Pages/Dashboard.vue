@@ -10,6 +10,7 @@ import EasyInput from "@/Components/Form/Input/Input.vue";
 import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
 import EasyToggle from "@/Components/Form/Input/Toggle.vue";
 import EasyRangeSlider from "@/Components/Form/Input/RangeSlider.vue";
+import EasySelect from "@/Components/Form/Input/Select.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
@@ -49,6 +50,35 @@ const input = reactive({
       },
     ],
     value: 'value2'
+  },
+  select:{
+    options: [
+      {
+        value: 'value1',
+        label: 'label 1'
+      },
+      {
+        value: 'value2',
+        label: 'label 2'
+      },
+      {
+        value: 'value3',
+        label: 'label 3'
+      },
+      {
+        value: 'value4',
+        label: 'label 4'
+      },
+      {
+        value: 'value5',
+        label: 'label 5'
+      },
+      {
+        value: 'value6',
+        label: 'label 6'
+      },
+    ],
+    value: ''
   }
 });
 
@@ -75,8 +105,10 @@ const toggleConfirmModal = (status) => {
           <easy-card outlined>
             <template #header> Card Header </template>
 
-            <easy-toggle v-model:checked="input.toggle" class="my-2"/>
+            <easy-toggle v-model:checked="input.toggle" class="my-4"/>
 
+            <easy-select :options="input.select.options" v-model="input.select.value" id="selectEample" name="selectEample" label="Some Select Label" class="my-4"/>
+            
             <easy-input
               icon="solid-person"
               placeholder="Some placeholder"
@@ -86,7 +118,7 @@ const toggleConfirmModal = (status) => {
               autofocus
               autocomplete="username"
               v-model="input.text"
-              class="my-2"
+              class="my-4"
             />
 
             <easy-input
@@ -96,14 +128,14 @@ const toggleConfirmModal = (status) => {
               type="number"
               required
               v-model="input.number"
-              class="my-2"
+              class="my-4"
             />
 
             <easy-text-area
               v-model="input.textArea"
               id="textArea"
               label="Text area label"
-              class="my-2"
+              class="my-4"
             />
 
             <easy-range-slider
@@ -111,14 +143,14 @@ const toggleConfirmModal = (status) => {
               :min="400"
               :max="1000"
               :step="10"
-              class="my-2"
+              class="my-4"
             />
 
-            <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkBoxExample" label="Some Check Box Label"/>
+            <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkBoxExample" label="Some Check Box Label" class="my-4"/>
 
-            <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radioGroupExample" name="radioGroupExample" label="Some Radio Label 2"/>
+            <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radioGroupExample" name="radioGroupExample" label="Some Radio Label 2" class="my-4"/>
 
-            <EasyTimePicker v-model="input.time"/>
+            <EasyTimePicker v-model="input.time" id="timePickerExample" label="Time picker" error="Invalid time" hint="Time is required" class="my-4"/>
             <template #footer> Card Footer </template>
           </easy-card>
         </form>

@@ -29,7 +29,6 @@ const props = defineProps({
     :height="props.height"
     :width="props.width"
     viewBox="0 0 24 24"
-    class="m-auto"
   >
     <path
       v-if="props.icon == 'hamburger'"
@@ -156,5 +155,6 @@ const props = defineProps({
       fill="currentColor"
       d="M15 8V16H5V8H15M16 6H4C3.45 6 3 6.45 3 7V17C3 17.55 3.45 18 4 18H16C16.55 18 17 17.55 17 17V13.5L21 17.5V6.5L17 10.5V7C17 6.45 16.55 6 16 6M6.35 12.08L7.5 10.95L9 12.5L12.5 9L13.65 10.37L9 15L6.35 12.08Z"
     />
+     <path v-else-if="props.icon == 'clock'" fill="currentColor" d="M12 20C16.4 20 20 16.4 20 12S16.4 4 12 4 4 7.6 4 12 7.6 20 12 20M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2M17 13.9L16.3 15.2L11 12.3V7H12.5V11.4L17 13.9Z" />
   </svg>
 </template>

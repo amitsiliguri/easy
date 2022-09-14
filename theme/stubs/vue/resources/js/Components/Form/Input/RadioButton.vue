@@ -70,7 +70,7 @@ const proxyChecked = computed({
 </script>
     
 <template>
-    <div>
+    <div class="flex">
       <input
         type="radio"
         :id="props.id"
@@ -84,8 +84,8 @@ const proxyChecked = computed({
           bg-transparent
           checked:w-2.5
           checked:h-2.5
-          checked:ml-[5px]
-          checked:mr-[5px]
+          checked:mx-[5px]
+          checked:mt-[5px]
           checked:outline-none
           checked:outline-2
           checked:ring-2
@@ -95,6 +95,6 @@ const proxyChecked = computed({
           checked:ring-indigo-500
         "
       />
-      <input-lebel v-if="!props.solo" :for="props.id" :label="props.label" />
+      <input-lebel v-if="!props.solo" :for="props.id" :label="props.label" class="ml-3 grow" />
     </div>
 </template>
