@@ -42,11 +42,18 @@ class ThemeServiceProvider extends ServiceProvider
             $this->commands([
                 InstallTheme::class
             ]);
-        // $this->publishes([
-        //     __DIR__.'/../stubs/resources/vue/js' => resource_path('js'),
-        //     __DIR__.'/../stubs/resources/css' => resource_path('css'),
-        //     __DIR__.'/config/menu.php' => config_path('menu.php'),
-        // ], 'theme');
+            $this->publishes([
+                __DIR__.'/../stubs/vue/resources/js' => resource_path('js'),
+                __DIR__.'/../stubs/vue/resources/css' => resource_path('css'),
+                __DIR__.'/../stubs/vue/resources/views' => resource_path('views'),
+                __DIR__.'/../stubs/vue/tailwind.config.js' => base_path('tailwind.config.js')
+            ], 'vue-theme');
+            $this->publishes([
+                __DIR__.'/../stubs/react/resources/js' => resource_path('js'),
+                __DIR__.'/../stubs/react/resources/css' => resource_path('css'),
+                __DIR__.'/../stubs/react/resources/views' => resource_path('views'),
+                __DIR__.'/../stubs/react/tailwind.config.js' => base_path('tailwind.config.js')
+            ], 'react-theme');
         }
     }
 
