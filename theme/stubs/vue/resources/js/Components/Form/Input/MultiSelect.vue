@@ -2,7 +2,7 @@
 import { ref, computed, watch } from "vue";
 
 import EasyDropdown from "@/Components/Theme/Dropdown.vue";
-import EasyRadioButtons from "@/Components/Form/Input/RadioButtons.vue";
+import EasyCheckBoxes from "@/Components/Form/Input/Checkboxes.vue";
 import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
@@ -11,9 +11,9 @@ import EasyButton from "@/Components/Theme/Button.vue";
 
 const props = defineProps({
   modelValue: {
-    type: String,
+    type: Array,
     default() {
-      return "";
+      return [];
     },
   },
   options: {
@@ -83,13 +83,13 @@ const proxySelected = computed({
 });
 
 const selectedLabel = () => {
-  let label = props.placeholder
-  props.options.forEach(element => {
-    if (element.value == props.modelValue) {
-      label = element.label
-    }
-  });
-  return label
+//   let label = props.placeholder;
+//   props.options.forEach((element) => {
+//     if (element.value == props.modelValue) {
+//       label = element.label;
+//     }
+//   });
+  return "label";
 };
 </script>
 
@@ -120,23 +120,22 @@ const selectedLabel = () => {
         'dark:outline-zinc-600',
         'outline-1',
       ]"
-      
       :trigger-open="active"
+      :close-on-content-click="false"
       @open-status="updateActiveStatus"
     >
       <template #trigger>
         <div>{{ selectedLabel() }}</div>
         <div class="grow">
-          <easy-icons icon="down" class="float-right"/>
+          <easy-icons icon="down" class="float-right" />
         </div>
       </template>
       <template #content>
-        <EasyRadioButtons
+        <EasyCheckBoxes
           :options="props.options"
           v-model="proxySelected"
           solo
-          :id="id + 'radio'"
-          :name="name"
+          :id="id + 'checkbox'"
         />
       </template>
     </easy-dropdown>

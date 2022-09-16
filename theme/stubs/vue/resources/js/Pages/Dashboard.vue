@@ -4,6 +4,7 @@ import { ref, reactive } from "vue";
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 
 import EasyCheckBox from "@/Components/Form/Input/Checkbox.vue";
+import EasyCheckBoxes from "@/Components/Form/Input/Checkboxes.vue";
 import EasyTimePicker from "@/Components/Form/Input/TimePicker.vue";
 import EasyRadioButtons from "@/Components/Form/Input/RadioButtons.vue";
 import EasyInput from "@/Components/Form/Input/Input.vue";
@@ -11,6 +12,7 @@ import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
 import EasyToggle from "@/Components/Form/Input/Toggle.vue";
 import EasyRangeSlider from "@/Components/Form/Input/RangeSlider.vue";
 import EasySelect from "@/Components/Form/Input/Select.vue";
+import EasyMultiSelect from "@/Components/Form/Input/MultiSelect.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
@@ -29,63 +31,46 @@ const input = reactive({
     min: 410,
     max: 670,
   },
-  textArea: '',
-  text:'',
-  number:'',
+  textArea: "",
+  text: "",
+  number: "",
   singleCheckBox: true,
-  time: '',
-  radioGroup:{
-    options: [
-      {
-        value: 'value1',
-        label: 'label 1'
-      },
-      {
-        value: 'value2',
-        label: 'label 2'
-      },
-      {
-        value: 'value3',
-        label: 'label 3'
-      },
-    ],
-    value: 'value2'
-  },
-  select:{
-    options: [
-      {
-        value: 'value1',
-        label: 'label 1'
-      },
-      {
-        value: 'value2',
-        label: 'label 2'
-      },
-      {
-        value: 'value3',
-        label: 'label 3'
-      },
-      {
-        value: 'value4',
-        label: 'label 4'
-      },
-      {
-        value: 'value5',
-        label: 'label 5'
-      },
-      {
-        value: 'value6',
-        label: 'label 6'
-      },
-    ],
-    value: ''
-  }
+  time: "",
+  radioGroup: "",
+  checkboxGroup: [],
+  select: "",
+  multiSelect: [ "value1", "value6", "value4", "value3" ],
+  options: [
+    {
+      value: "value1",
+      label: "label 1",
+    },
+    {
+      value: "value2",
+      label: "label 2",
+    },
+    {
+      value: "value3",
+      label: "label 3",
+    },
+    {
+      value: "value4",
+      label: "label 4",
+    },
+    {
+      value: "value5",
+      label: "label 5",
+    },
+    {
+      value: "value6",
+      label: "label 6",
+    },
+  ],
 });
 
 const toggleConfirmModal = (status) => {
   showConfirmModal.value = status;
 };
-
 </script>
 
 <template>
@@ -100,15 +85,39 @@ const toggleConfirmModal = (status) => {
 
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
         <form action="#">
           <easy-card outlined>
             <template #header> Card Header </template>
 
-            <easy-toggle v-model:checked="input.toggle" class="my-4"/>
+            <easy-toggle v-model:checked="input.toggle" class="my-4" />
 
-            <easy-select :options="input.select.options" v-model="input.select.value" id="selectEample" name="selectEample" label="Some Select Label" class="my-4"/>
-            
+            <EasyMultiSelect
+              :options="input.options"
+              v-model="input.multiSelect"
+              id="selectEample"
+              name="selectEample"
+              label="Some Select Label"
+              class="my-4"
+            />
+            {{ input.multiSelect }}
+            <EasyCheckBoxes
+              :options="input.options"
+              v-model="input.checkboxGroup"
+              id="radioGroupExample2"
+              name="radioGroupExample2"
+              label="Checkbox group label"
+              class="my-4"
+            />
+
+            <easy-select
+              :options="input.options"
+              v-model="input.select"
+              id="selectEample"
+              name="selectEample"
+              label="Some Select Label"
+              class="my-4"
+            />
+
             <easy-input
               icon="solid-person"
               placeholder="Some placeholder"
@@ -146,15 +155,34 @@ const toggleConfirmModal = (status) => {
               class="my-4"
             />
 
-            <EasyCheckBox v-model:checked="input.singleCheckBox" id="checkBoxExample" label="Some Check Box Label" class="my-4"/>
+            <EasyCheckBox
+              v-model:checked="input.singleCheckBox"
+              id="checkBoxExample"
+              label="Some Check Box Label"
+              class="my-4"
+            />
 
-            <EasyRadioButtons :options="input.radioGroup.options" v-model="input.radioGroup.value" id="radioGroupExample" name="radioGroupExample" label="Some Radio Label 2" class="my-4"/>
+            <EasyRadioButtons
+              :options="input.options"
+              v-model="input.radioGroup"
+              id="radioGroupExample"
+              name="radioGroupExample"
+              label="Some Radio Label 2"
+              class="my-4"
+            />
 
-            <EasyTimePicker v-model="input.time" id="timePickerExample" label="Time picker" error="Invalid time" hint="Time is required" class="my-4"/>
+            <EasyTimePicker
+              v-model="input.time"
+              id="timePickerExample"
+              label="Time picker"
+              error="Invalid time"
+              hint="Time is required"
+              class="my-4"
+            />
             <template #footer> Card Footer </template>
           </easy-card>
         </form>
-        {{input}}
+        {{ input }}
 
         <br /><br />
         <span>Button</span> <br />
