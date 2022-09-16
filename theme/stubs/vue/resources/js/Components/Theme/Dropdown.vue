@@ -110,15 +110,15 @@ const effect = (classes, scale, scaleY) => {
     <div v-show="open" class="fixed inset-0 z-40" @click="open = false"></div>
     <transition
       enter-active-class="transition ease-out duration-200"
-      :enter-from-class="effect('transform opacity-0','scale-0','scale-y-0')"
-      :enter-to-class="effect('transform opacity-100','scale-100','scale-y-100')"
+      :enter-from-class="effect('transform-gpu opacity-0','scale-0','scale-y-0')"
+      :enter-to-class="effect('transform-gpu opacity-100','scale-100','scale-y-100')"
       leave-active-class="transition ease-in duration-75"
-      :leave-from-class="effect('transform opacity-100','scale-100','scale-y-100')"
-      :leave-to-class="effect('transform opacity-0','scale-0','scale-y-0')"
+      :leave-from-class="effect('transform-gpu opacity-100','scale-100','scale-y-100')"
+      :leave-to-class="effect('transform-gpu opacity-0','scale-0','scale-y-0')"
     >
       <div
         v-show="open"
-        class="absolute z-50 mt-2 rounded-md shadow-lg transform-gpu"
+        class="absolute z-50 mt-2 rounded-md shadow-lg"
         :class="[widthClass, alignmentClasses]"
         style="display: none"
         @click="open = props.closeOnContentClick ? false : open"
