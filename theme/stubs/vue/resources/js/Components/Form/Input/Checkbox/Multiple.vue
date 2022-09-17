@@ -4,7 +4,7 @@ import { computed } from "vue";
 import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
-import EasyCheckbox from "@/Components/Form/Input/Checkbox.vue";
+import EasyCheckbox from "@/Components/Form/Input/Checkbox/Single.vue";
 
 const emit = defineEmits(["update:modelValue"]);
 
