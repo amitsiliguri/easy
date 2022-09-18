@@ -4,7 +4,7 @@ import { computed } from "vue";
 import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
-import EasyRadioButton from "@/Components/Form/Input/RadioButton/Single.vue";
+import EasyRadioButton from "@/Components/Form/Input/RadioButton.vue";
 
 const emit = defineEmits(["update:modelValue"]);
 
