@@ -1,73 +1,40 @@
 <script setup>
-import { onMounted } from "vue";
-import { useColor } from "@/Composables/useColor.js";
-const { colorType, isOutlined, setBorder, setBackground } = useColor();
-
 const props = defineProps({
-  elevate: {
-    type: Boolean,
-    required: false,
-    default() {
-      return false;
+    elevate: {
+        type: Boolean,
+        required: false,
+        default() {
+            return false
+        }
     },
-  },
-  outlined: {
-    type: Boolean,
-    required: false,
-    default() {
-      return false;
+    outlined: {
+        type: Boolean,
+        required: false,
+        default() {
+            return false
+        }
     },
-  },
-  color: {
-    type: String,
-    required: false,
-    default() {
-      return "default";
-    },
-  },
+    headerBg: {
+        type: String,
+        required: false,
+        default() {
+            return ""
+        }
+    }
 });
-
-
-onMounted(() => {
-    colorType.value = props.color
-    isOutlined.value = props.outlined
-});
-
-// used classes
-// outline-blue-500 dark:bg-neutral-900 outline-yellow-500 outline-rose-500 outline-lime-500 outline-transparent outline-zinc-200 dark:outline-slate-900
 </script>
 
 <template>
-  <div
-    class="rounded-md bg-white dark:bg-zinc-800 outline outline-1"
-    :class="[props.elevate ? 'material-shadow' : '', setBorder]"
-  >
-    <div
-      v-if="$slots.header"
-      class="py-5 px-2 text-lg flex items-center rounded-t-md"
-      :class="setBackground"
-    >
-      <slot name="header"></slot>
+    <div class="rounded-md bg-white dark:bg-zinc-800"
+        :class="[(props.elevate) ? 'shadow-md' : '', (props.outlined) ? 'border border-zinc-200 dark:border-zinc-900' : '']">
+        <div v-if="$slots.header" class="py-5 px-2 border-b border-zinc-200 dark:border-zinc-900 text-lg flex items-center" :class="headerBg">
+            <slot name="header"></slot>
+        </div>
+        <div class="py-5 px-2">
+            <slot></slot>
+        </div>
+        <div v-if="$slots.footer" class="py-5 px-2 border-t border-gray-200 dark:border-gray-900 flex justify-end bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 text-right">
+            <slot name="footer"></slot>
+        </div>
     </div>
-    <div class="py-5 px-2">
-      <slot></slot>
-    </div>
-    <div
-      v-if="$slots.footer"
-      class="
-        flex
-        justify-end
-        text-right
-        rounded-b-md
-        py-5
-        px-2
-        text-lg
-        flex
-        items-center
-      "
-      :class="setBackground"
-    >
-      <slot name="footer"></slot>
-    </div>
-  </div>
 </template>

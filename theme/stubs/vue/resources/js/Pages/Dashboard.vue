@@ -3,17 +3,16 @@ import { ref, reactive } from "vue";
 
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 
-import EasyCheckBox from "@/Components/Form/Input/Checkbox/Single.vue";
-import EasyCheckBoxes from "@/Components/Form/Input/Checkbox/Multiple.vue";
+import EasyCheckBox from "@/Components/Form/Input/Checkbox.vue";
+import EasyCheckBoxes from "@/Components/Form/Input/Checkboxes.vue";
 import EasyTimePicker from "@/Components/Form/Input/TimePicker.vue";
-import EasyRadioButtons from "@/Components/Form/Input/RadioButton/Multiple.vue";
+import EasyRadioButtons from "@/Components/Form/Input/RadioButtons.vue";
 import EasyInput from "@/Components/Form/Input/Input.vue";
 import EasyTextArea from "@/Components/Form/Input/TextArea.vue";
 import EasyToggle from "@/Components/Form/Input/Toggle.vue";
 import EasyRangeSlider from "@/Components/Form/Input/RangeSlider.vue";
-import EasySelect from "@/Components/Form/Input/Select/Single.vue";
-import EasyMultiSelect from "@/Components/Form/Input/Select/Multiple.vue";
-import EasySingleDatePicker from "@/Components/Form/Input/DatePicker/Single.vue";
+import EasySelect from "@/Components/Form/Input/Select.vue";
+import EasyMultiSelect from "@/Components/Form/Input/MultiSelect.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
@@ -40,7 +39,7 @@ const input = reactive({
   radioGroup: "",
   checkboxGroup: [],
   select: "",
-  multiSelect: ["value1", "value6", "value4", "value3"],
+  multiSelect: [ "value1", "value6", "value4", "value3" ],
   options: [
     {
       value: "value1",
@@ -67,7 +66,6 @@ const input = reactive({
       label: "label 6",
     },
   ],
-  date: "2023-12-15",
 });
 
 const toggleConfirmModal = (status) => {
@@ -93,8 +91,6 @@ const toggleConfirmModal = (status) => {
 
             <easy-toggle v-model:checked="input.toggle" class="my-4" />
 
-            {{ input.date }}
-            <EasySingleDatePicker v-model="input.date" />
             <EasyMultiSelect
               :options="input.options"
               v-model="input.multiSelect"
