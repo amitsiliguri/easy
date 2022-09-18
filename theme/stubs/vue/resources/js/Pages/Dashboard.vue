@@ -40,7 +40,7 @@ const input = reactive({
   radioGroup: "",
   checkboxGroup: [],
   select: "",
-  multiSelect: [ "value1", "value6", "value4", "value3" ],
+  multiSelect: ["value1", "value6", "value4", "value3"],
   options: [
     {
       value: "value1",
@@ -67,6 +67,7 @@ const input = reactive({
       label: "label 6",
     },
   ],
+  date: "2023-12-15",
 });
 
 const toggleConfirmModal = (status) => {
@@ -92,7 +93,8 @@ const toggleConfirmModal = (status) => {
 
             <easy-toggle v-model:checked="input.toggle" class="my-4" />
 
-            <EasySingleDatePicker />
+            {{ input.date }}
+            <EasySingleDatePicker v-model="input.date" />
             <EasyMultiSelect
               :options="input.options"
               v-model="input.multiSelect"
