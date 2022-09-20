@@ -99,6 +99,7 @@ class InstallTheme extends Command
                 return [
                         '@mdi/font' => '^6.5.95',
                         'vuedraggable' => '^4.1.0',
+                        'date-fns' => '^2.29.3',
                         'swiper' => '^8.0.7'
                     ] + $packages;
             });
