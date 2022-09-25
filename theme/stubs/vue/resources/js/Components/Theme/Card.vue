@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
-import { useColor } from "@/Composables/useColor.js";
-const { colorType, isOutlined, setBorder, setBackground } = useColor();
+import { useStyle } from "@/Composables/useStyle.js";
+const { colorType, isOutlined, setBorder, setBackground } = useStyle();
 
 const props = defineProps({
   elevate: {

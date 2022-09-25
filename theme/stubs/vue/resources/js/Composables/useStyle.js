@@ -1,11 +1,13 @@
 import { computed, ref } from "vue";
-export function useColor() {
+export function useStyle() {
     const colorType = ref('default')
     const isOutlined = ref(false)
+    const radiusType = ref('default')
+    const getSize = ref('default')
 
     const setBorder = computed(() => {
         let type = (isOutlined.value) ? colorType.value : 'transparent';
-        return {
+        return  'outline outline-1 ' + {
             primary: "outline-blue-500",
             warning: "outline-yellow-500",
             danger: "outline-rose-500",
@@ -37,5 +39,21 @@ export function useColor() {
         }[colorType.value.toString()];
     });
 
-    return { colorType, isOutlined, setBorder, setBackground, setHoverBackground }
+    const setRadius = computed(() => {
+        return {
+            sharp: "rounded-none",
+            default: "rounded",
+            full: "rounded-full",
+        }[radiusType.value.toString()];
+    });
+
+    const setSize = computed(() => {
+        return {
+            small: "text-xs py-1 px-2",
+            default: "text-base py-1 px-2",
+            large: "text-base py-2 px-3",
+        }[getSize.value.toString()];
+    });
+
+    return { colorType, isOutlined, radiusType, getSize, setBorder, setBackground, setHoverBackground, setRadius, setSize }
 }

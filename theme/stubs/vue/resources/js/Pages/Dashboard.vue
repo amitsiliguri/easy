@@ -15,8 +15,10 @@ import EasySelect from "@/Components/Form/Input/Select/Single.vue";
 import EasyMultiSelect from "@/Components/Form/Input/Select/Multiple.vue";
 import EasySingleDatePicker from "@/Components/Form/Input/DatePicker/Single.vue";
 import EasyRangeDatePicker from "@/Components/Form/Input/DatePicker/Range.vue";
+import EasyFileUpload from "@/Components/Form/Input/Upload/File.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
+import EasyChip from "@/Components/Theme/Chip.vue";
 import EasyBadge from "@/Components/Theme/Badge.vue";
 import EasyIcons from "@/Components/Theme/Icons.vue";
 import EasyButton from "@/Components/Theme/Button.vue";
@@ -96,7 +98,7 @@ const toggleConfirmModal = (status) => {
 
                         <easy-toggle v-model:checked="input.toggle" class="my-4" />
 
-
+                        <EasyFileUpload />
                         {{input.dateRange}}
                         <EasyRangeDatePicker v-model="input.dateRange" />
                         {{ input.date }}
@@ -198,7 +200,7 @@ const toggleConfirmModal = (status) => {
 
                 <br />
 
-                <easy-badge align="right" class="mt-4">
+                <easy-badge align="right" class="my-4">
                     <easy-button type="button" @click="addToast()">
                         <easy-icons icon="solid-person" /> Add notification
                     </easy-button>
@@ -206,6 +208,10 @@ const toggleConfirmModal = (status) => {
                         <span class="p-1">100</span>
                     </template>
                 </easy-badge>
+
+                <br />
+                <br />
+                <EasyChip elevate color="primary" size="small" radius="sharp">Hello</EasyChip>
             </div>
         </div>
     </BreezeAuthenticatedLayout>
