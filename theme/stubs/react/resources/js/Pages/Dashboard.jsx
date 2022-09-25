@@ -154,6 +154,7 @@ export default function Dashboard(props) {
           <div>
           <Badge 
           align="right"
+          bordered={true}
           badgeValue={<span className="p-1">100</span>}
           buttonValue={<Button
             className="m-1"
