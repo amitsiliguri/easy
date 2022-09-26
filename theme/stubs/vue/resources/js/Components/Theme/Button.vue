@@ -1,14 +1,32 @@
 <script setup>
-import { computed } from "vue";
-
-import { setButtonColor } from "@/Composables/setButtonColor.js";
-const { buttonClasses } = setButtonColor();
+import { computed, onMounted, watch } from "vue";
+import { useStyle } from "@/Composables/useStyle.js";
+import EasyIcons from "@/Components/Theme/Icons.vue";
+const { colorType,
+    isOutlined,
+    radiusType,
+    getSize,
+    setBorder,
+    setHoverBorder,
+    setBackground,
+    setHoverBackground,
+    setRadius,
+    setSize,
+    getPadding,
+    setPadding, } = useStyle();
 
 const props = defineProps({
   type: {
     type: String,
     default() {
       return "submit";
+    },
+  },
+  label: {
+    type: [String, Number],
+    required: false,
+    default() {
+      return "";
     },
   },
   outlined: {
@@ -18,14 +36,14 @@ const props = defineProps({
       return false;
     },
   },
-  rounded: {
-    type: Boolean,
+  curve: {
+    type: String,
     required: false,
     default() {
-      return false;
+      return "default";
     },
   },
-  elevate: {
+  elevated: {
     type: Boolean,
     required: false,
     default() {
@@ -53,93 +71,139 @@ const props = defineProps({
       return false;
     },
   },
-  fontSize: {
+  color: {
     type: String,
     required: false,
     default() {
-      return "xs";
+      return "";
     },
   },
-  color: {
+  size: {
     type: String,
     required: false,
     default() {
       return "default";
     },
   },
+  icon: {
+    type: String,
+    required: false,
+    default() {
+      return "";
+    },
+  },
+  rightIcon: {
+    type: String,
+    required: false,
+    default() {
+      return "";
+    },
+  },
+  padding : {
+    type: String,
+    required: false,
+    default() {
+      return "x-padding";
+    },
+  }
 });
 
-const font = computed(() => {
+onMounted(() => {
+  colorType.value = props.color
+  isOutlined.value = props.outlined
+  radiusType.value = props.curve
+  getSize.value = props.size
+  getPadding.value = props.padding
+});
+
+watch(() => props.color, (newValue) => {
+  colorType.value = newValue
+});
+
+watch(() => props.outlined, (newValue) => {
+  isOutlined.value = newValue
+});
+
+watch(() => props.curve, (newValue) => {
+  radiusType.value = newValue
+});
+
+watch(() => props.size, (newValue) => {
+  getSize.value = newValue
+});
+
+watch(() => props.padding, (newValue) => {
+  getPadding.value = newValue
+});
+
+const iconSize = computed(() => {
   return {
-    xs: "text-xs",
-    sm: "text-sm",
-    base: "text-base",
-    lg: "text-lg",
-    xl: "text-xl",
-    "2xl": "text-2xl",
-    "3xl": "text-3xl",
-    "4xl": "text-4xl",
-    "5xl": "text-5xl",
-    "6xl": "text-6xl",
-    "7xl": "text-7xl",
-    "8xl": "text-8xl",
-    "9xl": "text-9xl",
-  }[props.fontSize.toString()];
+    sm: 12,
+    default: 14,
+    lg: 16
+  }[props.size.toString()];
 });
+// "hover:outline-blue-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-600/5"
+// "hover:outline-yellow-600 hover:text-yellow-600 dark:hover:text-yellow-400 hover:bg-yellow-600/5"
+// "hover:outline-rose-600 hover:text-rose-600 dark:hover:text-rose-200 hover:bg-rose-600/5"
+// "hover:outline-lime-600 hover:text-lime-600 dark:hover:text-lime-400 hover:bg-lime-600/5"
+// "outline-transparent"
+// hover:outline-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400 hover:bg-zinc-600/5
 
-const size = computed(() => {
-  let classes = "";
-  if (props.small) {
-    classes += "min-h-[2rem]";
-  } else {
-    classes += "min-h-[2.5rem]";
-  }
-  if (props.full) {
-    classes += " w-full";
-  } else {
-    if (props.small) {
-      classes += " min-w-[2rem]";
-    } else {
-      classes += " min-w-[2.5rem]";
-    }
-  }
-  return classes
-});
-// 'bg-blue-500 text-gray-100 hover:text-white hover:bg-blue-600 dark:hover:bg-blue-400 active:bg-blue-700 dark:active:bg-blue-300'
-// 'bg-yellow-500 text-gray-100 hover:text-white hover:bg-yellow-600 dark:hover:bg-yellow-400 active:bg-yellow-700 dark:active:bg-yellow-300'
-// 'bg-rose-500 text-gray-100 hover:text-white hover:bg-rose-600 dark:hover:bg-rose-400 active:bg-rose-700 dark:active:bg-rose-300'
-// 'bg-lime-500 text-gray-100 hover:text-white hover:bg-lime-600 dark:hover:bg-lime-400 active:bg-lime-700 dark:active:bg-lime-300'
-// 'text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 border border-gray-800 dark:border-gray-100'
-// 'text-blue-500 border border-blue-500 hover:bg-blue-500/10 active:bg-blue-500/20'
-// 'text-yellow-500 border border-yellow-500 hover:bg-yellow-500/10 active:bg-yellow-500/20'
-// 'text-rose-500 border border-rose-500 hover:bg-rose-500/10 active:bg-rose-500/20'
-// 'text-lime-500 border border-lime-500 hover:bg-lime-500/10 active:bg-lime-500/20'
-// 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-600'
+//outline-blue-500 text-blue-500
+//outline-yellow-500 text-yellow-500
+//outline-rose-500 text-rose-500
+//outline-lime-500 text-lime-500
+//outline-zinc-200 dark:outline-zinc-900 text-zinc-200 dark:text-zinc-900
+// outline-zinc-500 text-zinc-500
+
+//bg-blue-500 text-gray-200
+//bg-yellow-500 text-gray-200
+//bg-rose-500 text-white
+//bg-lime-500 text-white
+//bg-transpanet
+//bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400
+
+// hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white
+// hover:bg-yellow-600 dark:hover:bg-yellow-400 hover:text-white
+// hover:bg-rose-600 dark:hover:bg-rose-400 hover:text-white
+// hover:bg-lime-600 dark:hover:bg-lime-400 hover:text-white
+// hover:bg-zinc-900/5 dark:hover:text-white hover:text-gray-600
+// hover:bg-zinc-200 hover:text-gray-600 dark:bg-neutral-900 dark:hover:text-white
+
+//rounded-none
+//rounded
+//rounded-full
+
+// text-xs min-w-[22px] min-h-[22px] px-1
+// text-sm min-w-[32px] min-h-[32px] px-2
+// text-base min-w-[48px] min-h-[48px] px-3
+
 </script>
-
+  
 <template>
-  <button
-    :type="props.type"
-    class="
-      p-1
-      inline-flex
-      items-center
-      justify-center
-      uppercase
-      tracking-widest
-      transition
-      ease-in-out
-      duration-150
-    "
-    :class="[
-      font,
-      props.bold ? 'font-bold' : '',
-      props.rounded ? 'rounded-full' : 'rounded',
-      props.elevate ? 'shadow-lg' : '',
-      size,
-      buttonClasses(outlined, color),
-    ]"
-  >
-    <slot />
+  <button :type="props.type" class="
+        inline-flex
+        items-center
+        justify-center
+        uppercase
+        tracking-widest
+        transition
+        ease-in-out
+        duration-150
+      " :class="[
+            props.elevated ? 'material-shadow' : '', 
+            (isOutlined) ? setBorder : setBackground, 
+            setRadius, 
+            (isOutlined) ? setHoverBorder : setHoverBackground,
+            setSize,
+            setPadding,
+            props.bold ? 'font-bold' : '',
+            props.full ? 'w-full' : ''
+      ]">
+    <EasyIcons v-if="props.icon !== ''" :icon="props.icon" :width="iconSize" :height="iconSize" />
+    <span v-if="props.label !== ''" class="mx-1">{{ props.label }}</span>
+    <EasyIcons v-if="props.rightIcon !== ''" :icon="props.rightIcon" :width="iconSize" :height="iconSize" />
   </button>
 </template>
+  

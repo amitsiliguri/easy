@@ -71,7 +71,7 @@ class HandleInertiaRequests extends Middleware
                 }
             ],
             // 'menu' => config('menu'),
-            'theme' => 'default',
+            'theme' => 'primary',
             'dark' => true
         ]);
     }

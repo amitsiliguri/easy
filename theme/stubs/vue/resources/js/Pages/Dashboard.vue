@@ -18,16 +18,15 @@ import EasyRangeDatePicker from "@/Components/Form/Input/DatePicker/Range.vue";
 import EasyFileUpload from "@/Components/Form/Input/Upload/File.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
-import EasyChip from "@/Components/Theme/Chip.vue";
-import EasyBadge from "@/Components/Theme/Badge.vue";
-import EasyIcons from "@/Components/Theme/Icons.vue";
-import EasyButton from "@/Components/Theme/Button.vue";
 import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
-import EasyDialogModal from "@/Components/Theme/Modal/DialogModal.vue";
+
+import PageButtons from "@/Components/Page/Dashboard/Buttons.vue";
+import PageIconButtons from "@/Components/Page/Dashboard/IconButtons.vue";
+import PageModal from "@/Components/Page/Dashboard/Modal.vue";
+import PageBadge from "@/Components/Page/Dashboard/Badge.vue";
+import PageChip from "@/Components/Page/Dashboard/Chip.vue"
 
 import { Head } from "@inertiajs/inertia-vue3";
-
-const showConfirmModal = ref(false);
 
 const input = reactive({
     toggle: true,
@@ -74,9 +73,9 @@ const input = reactive({
     dateRange: { "start": "2022-9-20", "end": "2022-10-12" },
 });
 
-const toggleConfirmModal = (status) => {
-    showConfirmModal.value = status;
-};
+// const toggleConfirmModal = (status) => {
+//     showConfirmModal.value = status;
+// };
 </script>
 
 <template>
@@ -92,8 +91,18 @@ const toggleConfirmModal = (status) => {
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <PageChip />
+                <br /><br />
+                <PageBadge />
+                <br /><br />
+                <PageModal />
+                <br /><br />
+                <PageButtons />
+                <br /><br />
+                <PageIconButtons />
+                <br /><br />
                 <form action="#">
-                    <easy-card outlined>
+                    <easy-card outlined color="default">
                         <template #header> Card Header </template>
 
                         <easy-toggle v-model:checked="input.toggle" class="my-4" />
@@ -135,18 +144,6 @@ const toggleConfirmModal = (status) => {
                 </form>
                 {{ input }}
 
-                <br /><br />
-                <span>Button</span> <br />
-                <easy-button class="m-1" small> Small Button </easy-button>
-                <easy-button class="m-1" color="primary" rounded>
-                    Primary Button
-                </easy-button>
-                <easy-button class="m-1" rounded color="danger" outlined elevate>
-                    Danger Outlined Button
-                </easy-button>
-                <easy-button class="m-1" outlined> Small Button </easy-button>
-
-                <br /><br />
 
                 <span>Link</span> <br />
                 <easy-link-button class="m-1" small> Small Link </easy-link-button>
@@ -156,7 +153,7 @@ const toggleConfirmModal = (status) => {
                 <easy-link-button class="m-1" rounded color="danger" outlined elevate>
                     Danger Outlined Link </easy-link-button><br /><br />
 
-                <easy-card outlined>
+                <easy-card outlined color="default">
                     <template #header> Card Header </template>
                     Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -181,37 +178,9 @@ const toggleConfirmModal = (status) => {
 
                     <template #footer> Card Footer </template>
                 </easy-card>
-
-                <easy-dialog-modal title="Modal Title" :show="showConfirmModal" @close="toggleConfirmModal(false)">
-                    <template #content>
-                        <span class="text-justify">The standard chunk of Lorem Ipsum used since the 1500s is
-                            reproduced below for those interested. Sections 1.10.32 and
-                            1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
-                            reproduced in their exact original form, accompanied by English
-                            versions from the 1914 translation by H. Rackham.</span>
-                    </template>
-                    <template #footer> Modal Footer </template>
-                </easy-dialog-modal>
-
-                <easy-button class="my-1" rounded color="primary" outlined elevate
-                    @click="toggleConfirmModal(!showConfirmModal)">
-                    Danger Outlined Button
-                </easy-button>
-
-                <br />
-
-                <easy-badge align="right" class="my-4">
-                    <easy-button type="button" @click="addToast()">
-                        <easy-icons icon="solid-person" /> Add notification
-                    </easy-button>
-                    <template #badgeContent>
-                        <span class="p-1">100</span>
-                    </template>
-                </easy-badge>
-
                 <br />
                 <br />
-                <EasyChip elevate color="primary" size="small" radius="sharp">Hello</EasyChip>
+                
             </div>
         </div>
     </BreezeAuthenticatedLayout>

@@ -205,18 +205,15 @@ const isMonthSelected = (month) => {
 </script>
 
 <template>
-    <EasyCard elevate color="primary" class="w-80">
+    <EasyCard elevate color="primary" class="w-96">
         <template #header>
-            <EasyButton small color="primary" type="button" font-size="lg" @click="active = 'year'">
-                {{ currentPageMonth }} {{ currentPageYear }}
-            </EasyButton>
+            <EasyButton color="primary" type="button" @click="active = 'year'"
+                :label="currentPageMonth + ' ' + currentPageYear" />
             <span class="grow"></span>
-            <EasyButton v-if="active === 'date'" rounded small color="primary" type="button" @click="prevMonth()">
-                <EasyIcons icon="left" />
-            </EasyButton>
-            <EasyButton v-if="active === 'date'" rounded small color="primary" type="button" @click="nextMonth()">
-                <EasyIcons icon="right" />
-            </EasyButton>
+            <EasyButton v-if="active === 'date'" color="primary" curve="full" type="button" @click="prevMonth()"
+                icon="left" />
+            <EasyButton v-if="active === 'date'" color="primary" curve="full" type="button" @click="nextMonth()"
+                icon="right" />
         </template>
         <table class="w-full table-fixed">
             <thead v-if="active === 'date'">
@@ -230,34 +227,44 @@ const isMonthSelected = (month) => {
                 <template v-if="active === 'date'">
                     <tr v-for="(week, weekIndex) in dates" :key="weekIndex">
                         <td v-for="(date, dateIndex) in week" :key="dateIndex" class="text-center p-1">
-                            <EasyButton v-if="date.isIncurrentMonth" rounded small type="button"
-                                :disabled="!date.isIncurrentMonth" :color="
-                                  date.isSelectedDay || date.isToday ? 'primary' : 'default'
-                                " :outlined="date.isToday && !date.isSelectedDay" @click="selectDate(date)">
-                                {{ date.formattedDate }}
-                            </EasyButton>
+                            <EasyButton 
+                            v-if="date.isIncurrentMonth" 
+                            :disabled="!date.isIncurrentMonth"
+                            :color="date.isSelectedDay || date.isToday ? 'primary' : 'transparent'"
+                            type="button"
+                            full
+                            :outlined="date.isToday && !date.isSelectedDay"
+                            @click="selectDate(date)"
+                            :label="date.formattedDate.toString()" 
+                            />
                         </td>
                     </tr>
                 </template>
                 <template v-else-if="active === 'month'">
-                    <tr v-for="(quarters, quarterIndex) in months" :key="quarterIndex">
+                    <tr v-for="(quarters, quarterOndex) in months" :key="quarterOndex">
                         <td v-for="(month, monthIndex) in quarters" :key="monthIndex" class="text-center p-1">
-                            <EasyButton small full type="button"
-                                :color="month.selected || month.current ? 'primary' : 'default'"
-                                :outlined="month.current && !month.selected" @click="updateMonth(month.value)">
-                                {{ month.label }}
-                            </EasyButton>
+                            <EasyButton
+                            :color="month.selected || month.current ? 'primary' : 'transparent'"
+                            type="button"
+                            full
+                            :outlined="month.current && !month.selected" 
+                            @click="updateMonth(month.value)"
+                            :label="month.label" 
+                            />
                         </td>
                     </tr>
                 </template>
                 <template v-else-if="active === 'year'">
-                    <tr v-for="(quarters, quarterIndex) in years" :key="quarterIndex">
+                    <tr v-for="(quarters, quarterOndex) in years" :key="quarterOndex">
                         <td v-for="(year, yearIndex) in quarters" :key="yearIndex" class="text-center p-1">
-                            <EasyButton small full type="button"
-                                :color="year.selected || year.current ? 'primary' : 'default'"
-                                :outlined="year.current && !year.selected" @click="updateYear(year.value)">
-                                {{ year.value }}
-                            </EasyButton>
+                            <EasyButton
+                            :color="year.selected || year.current ? 'primary' : 'transparent'"
+                            type="button"
+                            full
+                            :outlined="year.current && !year.selected" 
+                            @click="updateYear(year.value)"
+                            :label="year.value.toString()" 
+                            />
                         </td>
                     </tr>
                 </template>
