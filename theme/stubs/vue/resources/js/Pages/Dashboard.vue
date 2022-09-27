@@ -101,15 +101,15 @@ const input = reactive({
                 <br /><br />
                 <PageIconButtons />
                 <br /><br />
-                <!-- <form action="#">
-                    <easy-card outlined color="default">
+                <form action="#">
+                    <easy-card seperated>
                         <template #header> Card Header </template>
 
                         <easy-toggle v-model:checked="input.toggle" class="my-4" />
 
                         <EasyFileUpload />
                         {{input.dateRange}}
-                        <EasyRangeDatePicker v-model="input.dateRange" />
+                        <EasyRangeDatePicker v-model="input.dateRange" outlined/>
                         <br /> <br />
                         {{ input.date }}
                         <EasySingleDatePicker v-model="input.date" />
@@ -143,7 +143,7 @@ const input = reactive({
                         <template #footer> Card Footer </template>
                     </easy-card>
                 </form>
-                {{ input }} -->
+                {{ input }}
 
 
                 <!-- <span>Link</span> <br /> -->

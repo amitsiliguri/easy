@@ -23,7 +23,7 @@ export function useStyle() {
       danger: "bg-rose-500",
       success: "bg-lime-500",
       transparent: "bg-transpanet",
-      default: "bg-zinc-100 dark:bg-zinc-700",
+      default: "bg-zinc-200 dark:bg-zinc-700",
     }[bgType.toString()];
   });
 
@@ -38,7 +38,7 @@ export function useStyle() {
       danger: "hover:bg-rose-600 dark:hover:bg-rose-400",
       success: "hover:bg-lime-600 dark:hover:bg-lime-400",
       transparent: "hover:bg-zinc-900/5",
-      default: "hover:bg-zinc-200 dark:bg-zinc-900",
+      default: "hover:bg-zinc-300 dark:bg-zinc-600",
     }[hoverBgType.toString()];
   });
 

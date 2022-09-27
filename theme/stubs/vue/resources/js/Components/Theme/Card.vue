@@ -32,6 +32,13 @@ const props = defineProps({
       return "";
     },
   },
+  outlineColor: {
+    type: String,
+    required: false,
+    default() {
+      return "";
+    },
+  },
   seperated: {
     type: Boolean,
     required: false,
@@ -42,16 +49,23 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  getBackgroundType.value = props.outlined ? "transparent" : props.color;
-  getOutlineType.value = props.outlined ? props.color : "transparent";
-  getTextType.value = props.outlined
-    ? props.color
-    : props.color == "transparent" || props.color == "default"
-    ? ""
-    : "white";
-  console.log(getTextType.value);
+  getBackgroundType.value = props.color;
+  setOutlineType();
+  getTextType.value =
+    props.color == "transparent" || props.color == "default" ? "" : "white";
 });
 
+const setOutlineType = () => {
+  getOutlineType.value = props.outlined
+    ? props.outlineColor
+      ? props.outlineColor === "transparent"
+        ? "default"
+        : props.outlineColor
+      : props.color === "transparent"
+      ? ""
+      : props.color
+    : "transparent";
+};
 // "hover:outline-blue-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-600/5"
 // "hover:outline-yellow-600 hover:text-yellow-600 dark:hover:text-yellow-400 hover:bg-yellow-600/5"
 // "hover:outline-rose-600 hover:text-rose-600 dark:hover:text-rose-200 hover:bg-rose-600/5"
@@ -97,7 +111,7 @@ onMounted(() => {
     <div
       v-if="$slots.header"
       class="py-5 px-2 text-lg flex items-center rounded-t-md"
-      :class="[props.seperated ? 'border-b' : '', setBackground, setTextColor]"
+      :class="[setBackground, setTextColor, props.seperated ? 'border-b border-zinc-200 dark:border-zinc-600' : '']"
     >
       <slot name="header"></slot>
     </div>
@@ -107,7 +121,7 @@ onMounted(() => {
     <div
       v-if="$slots.footer"
       class="flex justify-end text-right rounded-b-md py-5 px-2 text-lg flex items-center"
-      :class="[props.seperated ? 'border-t' : '']"
+      :class="[props.seperated ? 'border-t border-zinc-200 dark:border-zinc-600' : '']"
     >
       <slot name="footer"></slot>
     </div>

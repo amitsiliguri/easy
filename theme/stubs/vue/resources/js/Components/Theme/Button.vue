@@ -123,7 +123,7 @@ watch(
   () => props.color,
   (newValue) => {
     getBackgroundType.value = props.outlined ? "transparent" : newValue;
-    getTextType.value = props.outlined ? newValue : "white";
+    getTextType.value = props.outlined ? newValue :  (newValue == "transparent" || newValue == "default") ? "" : "white";
     getOutlineType.value = props.outlined ? newValue : (newValue == "transparent" || newValue == "default") ? "" : "white";
   }
 );
@@ -132,7 +132,7 @@ watch(
   () => props.outlined,
   (newValue) => {
     getBackgroundType.value = newValue ? "transparent" : props.color;
-    getTextType.value = newValue ? props.color : "white";
+    getTextType.value = newValue ? props.color : (props.color == "transparent" || props.color == "default") ? "" : "white";
     getOutlineType.value = newValue ? props.color : (props.color == "transparent" || props.color == "default") ? "" : "white";
   }
 );

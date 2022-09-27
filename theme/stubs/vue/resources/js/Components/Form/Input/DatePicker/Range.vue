@@ -20,10 +20,9 @@ import {
     addYears,
     setMonth,
     setYear,
-    getDate
+    getDate,
 } from "date-fns";
 import EasyCard from "@/Components/Theme/Card.vue";
-import EasyIcons from "@/Components/Theme/Icons.vue";
 import EasyButton from "@/Components/Theme/Button.vue";
 
 const props = defineProps({
@@ -32,8 +31,22 @@ const props = defineProps({
         default() {
             return {
                 start: "",
-                end: ""
-            }
+                end: "",
+            };
+        },
+    },
+    color: {
+        type: String,
+        required: false,
+        default() {
+            return "";
+        },
+    },
+    outlined: {
+        type: Boolean,
+        required: false,
+        default() {
+            return false;
         },
     },
 });
@@ -47,23 +60,38 @@ const currentPage = ref(
 
 const selected = reactive({
     dates: {
-        start: props.modelValue.start !== "" ? new Date(props.modelValue.start) : "",
-        end: props.modelValue.end !== "" ? new Date(props.modelValue.end) : ""
-    }
+        start:
+            props.modelValue.start !== "" ? new Date(props.modelValue.start) : "",
+        end: props.modelValue.end !== "" ? new Date(props.modelValue.end) : "",
+    },
 });
 
 watch(
     () => selected.dates,
     (newValue) => {
-        let startDate = (newValue.start !== "") ? getYear(newValue.start) + "-" + (getMonth(newValue.start) + 1) + "-" + getDate(newValue.start) : ""
-        let endDate = (newValue.end !== "") ? getYear(newValue.end) + "-" + (getMonth(newValue.end) + 1) + "-" + getDate(newValue.end) : ""
+        let startDate =
+            newValue.start !== ""
+                ? getYear(newValue.start) +
+                "-" +
+                (getMonth(newValue.start) + 1) +
+                "-" +
+                getDate(newValue.start)
+                : "";
+        let endDate =
+            newValue.end !== ""
+                ? getYear(newValue.end) +
+                "-" +
+                (getMonth(newValue.end) + 1) +
+                "-" +
+                getDate(newValue.end)
+                : "";
         emit("update:modelValue", {
             start: startDate,
-            end: endDate
+            end: endDate,
         });
     },
     { deep: true }
-)
+);
 
 const currentPageMonth = computed(() => {
     const dateFormat = "MMM";
@@ -155,12 +183,12 @@ const dates = computed(() => {
 
 const selectDate = (day) => {
     if (selected.dates.start == "") {
-        selected.dates.start = day.day
-    } else if ((selected.dates.start <= day.day && selected.dates.end == "")) {
-        selected.dates.end = day.day
+        selected.dates.start = day.day;
+    } else if (selected.dates.start <= day.day && selected.dates.end == "") {
+        selected.dates.end = day.day;
     } else {
-        selected.dates.start = day.day
-        selected.dates.end = ""
+        selected.dates.start = day.day;
+        selected.dates.end = "";
     }
 };
 
@@ -183,21 +211,39 @@ const updateYear = (year) => {
 };
 
 const isDaySelected = (day) => {
-    if (selected.dates.start !== "" && (isSameDay(day, selected.dates.start) || (selected.dates.end !== "" && day >= selected.dates.start && day <= selected.dates.end))) {
+    if (
+        selected.dates.start !== "" &&
+        (isSameDay(day, selected.dates.start) ||
+            (selected.dates.end !== "" &&
+                day >= selected.dates.start &&
+                day <= selected.dates.end))
+    ) {
         return true;
     }
     return false;
 };
 
 const isYearSelected = (year) => {
-    if (selected.dates.start !== "" && (isSameYear(year, selected.dates.start) || (selected.dates.end !== "" && year >= selected.dates.start && year <= selected.dates.end))) {
+    if (
+        selected.dates.start !== "" &&
+        (isSameYear(year, selected.dates.start) ||
+            (selected.dates.end !== "" &&
+                year >= selected.dates.start &&
+                year <= selected.dates.end))
+    ) {
         return true;
     }
     return false;
 };
 
 const isMonthSelected = (month) => {
-    if (selected.dates.start !== "" && (isSameMonth(month, selected.dates.start) || (selected.dates.end !== "" && month >= selected.dates.start && month <= selected.dates.end))) {
+    if (
+        selected.dates.start !== "" &&
+        (isSameMonth(month, selected.dates.start) ||
+            (selected.dates.end !== "" &&
+                month >= selected.dates.start &&
+                month <= selected.dates.end))
+    ) {
         return true;
     }
     return false;
@@ -205,14 +251,14 @@ const isMonthSelected = (month) => {
 </script>
 
 <template>
-    <EasyCard outlined colorful class="w-96">
+    <EasyCard :outlined="props.outlined" seperated :color="props.color" class="w-96">
         <template #header>
-            <EasyButton :color="$page.theme" type="button" @click="active = 'year'"
-                :label="currentPageMonth + ' ' + currentPageYear" />
+            <EasyButton :color="props.color" type="button" @click="active = 'year'"
+                :label="currentPageMonth + ' ' + currentPageYear " />
             <span class="grow"></span>
-            <EasyButton v-if="active === 'date'" :color="$page.theme" curve="full" type="button" @click="prevMonth()"
+            <EasyButton v-if="active === 'date'" :color="props.color" curve="full" type="button" @click="prevMonth()"
                 icon="left" />
-            <EasyButton v-if="active === 'date'" :color="$page.theme" curve="full" type="button" @click="nextMonth()"
+            <EasyButton v-if="active === 'date'" :color="props.color" curve="full" type="button" @click="nextMonth()"
                 class="ml-1" icon="right" />
         </template>
         <table class="w-full table-fixed">
@@ -227,18 +273,21 @@ const isMonthSelected = (month) => {
                 <template v-if="active === 'date'">
                     <tr v-for="(week, weekIndex) in dates" :key="weekIndex">
                         <td v-for="(date, dateIndex) in week" :key="dateIndex" class="text-center p-1">
-                            <EasyButton v-if="date.isIncurrentMonth" :disabled="!date.isIncurrentMonth"
-                                :color="date.isSelectedDay || date.isToday ? $page.theme : 'transparent'" type="button"
-                                full :outlined="date.isToday && !date.isSelectedDay" @click="selectDate(date)"
-                                :label="date.formattedDate.toString()" />
+                            <EasyButton v-if="date.isIncurrentMonth" :disabled="!date.isIncurrentMonth" :color="
+                              date.isSelectedDay || date.isToday
+                                ? (props.color === 'transparent') ? 'default' : props.color
+                                : 'transparent'
+                            " type="button" full :outlined="date.isToday && !date.isSelectedDay"
+                                @click="selectDate(date)" :label="date.formattedDate.toString()" />
                         </td>
                     </tr>
                 </template>
                 <template v-else-if="active === 'month'">
                     <tr v-for="(quarters, quarterOndex) in months" :key="quarterOndex">
                         <td v-for="(month, monthIndex) in quarters" :key="monthIndex" class="text-center p-1">
-                            <EasyButton :color="month.selected || month.current ? $page.theme : 'transparent'"
-                                type="button" full :outlined="month.current && !month.selected"
+                            <EasyButton :color="
+                              month.selected || month.current ? (props.color === 'transparent') ? 'default' : props.color : 'transparent'
+                            " type="button" full :outlined="month.current && !month.selected"
                                 @click="updateMonth(month.value)" :label="month.label" />
                         </td>
                     </tr>
@@ -246,9 +295,10 @@ const isMonthSelected = (month) => {
                 <template v-else-if="active === 'year'">
                     <tr v-for="(quarters, quarterOndex) in years" :key="quarterOndex">
                         <td v-for="(year, yearIndex) in quarters" :key="yearIndex" class="text-center p-1">
-                            <EasyButton :color="year.selected || year.current ? $page.theme : 'transparent'" type="button"
-                                full :outlined="year.current && !year.selected" @click="updateYear(year.value)"
-                                :label="year.value.toString()" />
+                            <EasyButton :color="
+                              year.selected || year.current ? (props.color === 'transparent') ? 'default' : props.color : 'transparent'
+                            " type="button" full :outlined="year.current && !year.selected"
+                                @click="updateYear(year.value)" :label="year.value.toString()" />
                         </td>
                     </tr>
                 </template>
