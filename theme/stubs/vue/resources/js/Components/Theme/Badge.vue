@@ -1,7 +1,16 @@
 <script setup>
 import { computed, onMounted } from 'vue';
 import { useStyle } from "@/Composables/useStyle.js";
-const { colorType, isOutlined, setBorder, setBackground } = useStyle();
+
+const {
+    getTextType,
+    setTextColor,
+    getBackgroundType,
+    setBackground,
+    getOutlineType,
+    setOutline
+} = useStyle();
+
 const props = defineProps({
     align: {
         type: String,
@@ -25,8 +34,9 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  colorType.value = props.color
-  isOutlined.value = props.outlined
+    getBackgroundType.value = props.color
+    getOutlineType.value = props.outlined ? props.color : "transparent";
+    getTextType.value = props.outlined ? props.color : (props.color == "transparent" || props.color == "default") ? "" : "white";
 })
 
 const alignmentClasses = computed(() => {
@@ -46,8 +56,9 @@ const alignmentClasses = computed(() => {
         <span class="absolute h-[20px] min-w-[20px] rounded-full inline-flex items-center justify-center"
             :style="alignmentClasses" 
             :class="[
-                (isOutlined) ? setBorder : setBackground,
-                (isOutlined) ? 'bg-white dark:bg-zinc-900' : '',
+                setTextColor,
+                props.outlined ? setOutline : setBackground,
+                props.outlined ? 'bg-white dark:bg-zinc-900' : '',
                 ]">
             <slot name="badgeContent">0</slot>
         </span>

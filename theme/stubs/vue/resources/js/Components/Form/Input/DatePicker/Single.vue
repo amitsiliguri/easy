@@ -167,15 +167,15 @@ const updateYear = (year) => {
 </script>
 
 <template>
-    <EasyCard elevate color="primary" class="w-96">
+    <EasyCard outlined colorful class="w-96">
         <template #header>
-            <EasyButton color="primary" type="button" @click="active = 'year'"
+            <EasyButton :color="$page.theme" type="button" @click="active = 'year'"
                 :label="currentPageMonth + ' ' + currentPageYear" />
             <span class="grow"></span>
-            <EasyButton v-if="active === 'date'" color="primary" curve="full" type="button" @click="prevMonth()"
+            <EasyButton v-if="active === 'date'" :color="$page.theme" curve="full" type="button" @click="prevMonth()"
                 icon="left" />
-            <EasyButton v-if="active === 'date'" color="primary" curve="full" type="button" @click="nextMonth()"
-                icon="right" />
+            <EasyButton v-if="active === 'date'" :color="$page.theme" curve="full" type="button" @click="nextMonth()"
+                class="ml-1" icon="right" />
         </template>
         <table class="w-full table-fixed">
             <thead v-if="active === 'date'">
@@ -189,43 +189,28 @@ const updateYear = (year) => {
                 <template v-if="active === 'date'">
                     <tr v-for="(week, weekIndex) in dates" :key="weekIndex">
                         <td v-for="(date, dateIndex) in week" :key="dateIndex" class="text-center p-1">
-                            <EasyButton 
-                            v-if="date.isIncurrentMonth" 
-                            :disabled="!date.isIncurrentMonth"
-                            :color="date.isSelectedDay || date.isToday ? 'primary' : 'transparent'"
-                            type="button"
-                            :outlined="date.isToday && !date.isSelectedDay"
-                            @click="selectDate(date)"
-                            :label="date.formattedDate.toString()" 
-                            />
+                            <EasyButton v-if="date.isIncurrentMonth" :disabled="!date.isIncurrentMonth"
+                                :color="date.isSelectedDay || date.isToday ? $page.theme : 'transparent'" type="button"
+                                full :outlined="date.isToday && !date.isSelectedDay" @click="selectDate(date)"
+                                :label="date.formattedDate.toString()" />
                         </td>
                     </tr>
                 </template>
                 <template v-else-if="active === 'month'">
                     <tr v-for="(quarters, quarterOndex) in months" :key="quarterOndex">
                         <td v-for="(month, monthIndex) in quarters" :key="monthIndex" class="text-center p-1">
-                            <EasyButton
-                            :color="month.selected || month.current ? 'primary' : 'transparent'"
-                            type="button"
-                            full
-                            :outlined="month.current && !month.selected" 
-                            @click="updateMonth(month.value)"
-                            :label="month.label" 
-                            />
+                            <EasyButton :color="month.selected || month.current ? $page.theme : 'transparent'"
+                                type="button" full :outlined="month.current && !month.selected"
+                                @click="updateMonth(month.value)" :label="month.label" />
                         </td>
                     </tr>
                 </template>
                 <template v-else-if="active === 'year'">
                     <tr v-for="(quarters, quarterOndex) in years" :key="quarterOndex">
                         <td v-for="(year, yearIndex) in quarters" :key="yearIndex" class="text-center p-1">
-                            <EasyButton
-                            :color="year.selected || year.current ? 'primary' : 'transparent'"
-                            type="button"
-                            full
-                            :outlined="year.current && !year.selected" 
-                            @click="updateYear(year.value)"
-                            :label="year.value.toString()" 
-                            />
+                            <EasyButton :color="year.selected || year.current ? $page.theme : 'transparent'" type="button"
+                                full :outlined="year.current && !year.selected" @click="updateYear(year.value)"
+                                :label="year.value.toString()" />
                         </td>
                     </tr>
                 </template>

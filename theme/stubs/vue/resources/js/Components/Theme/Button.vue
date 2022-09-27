@@ -2,18 +2,23 @@
 import { computed, onMounted, watch } from "vue";
 import { useStyle } from "@/Composables/useStyle.js";
 import EasyIcons from "@/Components/Theme/Icons.vue";
-const { colorType,
-    isOutlined,
-    radiusType,
-    getSize,
-    setBorder,
-    setHoverBorder,
-    setBackground,
-    setHoverBackground,
-    setRadius,
-    setSize,
-    getPadding,
-    setPadding, } = useStyle();
+const {
+  getTextType,
+  setTextColor,
+  setHoverTextColor,
+  getBackgroundType,
+  setBackground,
+  setHoverBackground,
+  getOutlineType,
+  setOutline,
+  setHoverOutline,
+  getRadiusType,
+  setRadius,
+  getSize,
+  setSize,
+  getPadding,
+  setPadding
+} = useStyle();
 
 const props = defineProps({
   type: {
@@ -99,48 +104,64 @@ const props = defineProps({
       return "";
     },
   },
-  padding : {
-    type: String,
-    required: false,
-    default() {
-      return "x-padding";
-    },
-  }
 });
 
 onMounted(() => {
-  colorType.value = props.color
-  isOutlined.value = props.outlined
-  radiusType.value = props.curve
-  getSize.value = props.size
-  getPadding.value = props.padding
+  getBackgroundType.value = props.outlined ? "transparent" : props.color;
+  getOutlineType.value = props.outlined ? props.color : "transparent";
+  getRadiusType.value = props.curve;
+  getSize.value = props.size;
+  getTextType.value = props.outlined ? props.color : (props.color == "transparent" || props.color == "default") ? "" : "white";
+  getPadding.value = {
+    sm: "sm",
+    default: "default",
+    lg: "lg",
+  }[props.size.toString()];
 });
 
-watch(() => props.color, (newValue) => {
-  colorType.value = newValue
-});
+watch(
+  () => props.color,
+  (newValue) => {
+    getBackgroundType.value = props.outlined ? "transparent" : newValue;
+    getTextType.value = props.outlined ? newValue : "white";
+    getOutlineType.value = props.outlined ? newValue : (newValue == "transparent" || newValue == "default") ? "" : "white";
+  }
+);
 
-watch(() => props.outlined, (newValue) => {
-  isOutlined.value = newValue
-});
+watch(
+  () => props.outlined,
+  (newValue) => {
+    getBackgroundType.value = newValue ? "transparent" : props.color;
+    getTextType.value = newValue ? props.color : "white";
+    getOutlineType.value = newValue ? props.color : (props.color == "transparent" || props.color == "default") ? "" : "white";
+  }
+);
 
-watch(() => props.curve, (newValue) => {
-  radiusType.value = newValue
-});
+watch(
+  () => props.curve,
+  (newValue) => {
+    radiusType.value = newValue;
+  }
+);
 
-watch(() => props.size, (newValue) => {
-  getSize.value = newValue
-});
+watch(
+  () => props.size,
+  (newValue) => {
+    getSize.value = newValue;
 
-watch(() => props.padding, (newValue) => {
-  getPadding.value = newValue
-});
+    getPadding.value = {
+      sm: "sm",
+      default: "default",
+      lg: "lg",
+    }[newValue.toString()];
+  }
+);
 
 const iconSize = computed(() => {
   return {
     sm: 12,
     default: 14,
-    lg: 16
+    lg: 16,
   }[props.size.toString()];
 });
 // "hover:outline-blue-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-600/5"
@@ -169,7 +190,7 @@ const iconSize = computed(() => {
 // hover:bg-rose-600 dark:hover:bg-rose-400 hover:text-white
 // hover:bg-lime-600 dark:hover:bg-lime-400 hover:text-white
 // hover:bg-zinc-900/5 dark:hover:text-white hover:text-gray-600
-// hover:bg-zinc-200 hover:text-gray-600 dark:bg-neutral-900 dark:hover:text-white
+// hover:bg-zinc-200 hover:text-gray-600 dark:bg-zinc-900 dark:hover:text-white
 
 //rounded-none
 //rounded
@@ -178,32 +199,26 @@ const iconSize = computed(() => {
 // text-xs min-w-[22px] min-h-[22px] px-1
 // text-sm min-w-[32px] min-h-[32px] px-2
 // text-base min-w-[48px] min-h-[48px] px-3
-
 </script>
-  
+
 <template>
-  <button :type="props.type" class="
-        inline-flex
-        items-center
-        justify-center
-        uppercase
-        tracking-widest
-        transition
-        ease-in-out
-        duration-150
-      " :class="[
-            props.elevated ? 'material-shadow' : '', 
-            (isOutlined) ? setBorder : setBackground, 
-            setRadius, 
-            (isOutlined) ? setHoverBorder : setHoverBackground,
-            setSize,
-            setPadding,
-            props.bold ? 'font-bold' : '',
-            props.full ? 'w-full' : ''
-      ]">
+  <button :type="props.type"
+    class="inline-flex items-center justify-center uppercase tracking-widest transition ease-in-out duration-150"
+    :class="[
+      setSize,
+      setRadius,
+      setPadding,
+      setTextColor,
+      setHoverTextColor,
+      props.full ? 'w-full' : '',
+      props.bold ? 'font-bold' : '',
+      props.elevated ? 'material-shadow' : '',
+      props.outlined ? setOutline : setBackground,
+      props.outlined ? setHoverOutline : setHoverBackground,
+      props.outlined ? setHoverOutline : setHoverBackground,
+    ]">
     <EasyIcons v-if="props.icon !== ''" :icon="props.icon" :width="iconSize" :height="iconSize" />
     <span v-if="props.label !== ''" class="mx-1">{{ props.label }}</span>
     <EasyIcons v-if="props.rightIcon !== ''" :icon="props.rightIcon" :width="iconSize" :height="iconSize" />
   </button>
 </template>
-  

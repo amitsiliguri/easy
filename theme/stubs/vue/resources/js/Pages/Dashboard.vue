@@ -18,7 +18,7 @@ import EasyRangeDatePicker from "@/Components/Form/Input/DatePicker/Range.vue";
 import EasyFileUpload from "@/Components/Form/Input/Upload/File.vue";
 
 import EasyCard from "@/Components/Theme/Card.vue";
-import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
+// import EasyLinkButton from "@/Components/Theme/LinkButton.vue";
 
 import PageButtons from "@/Components/Page/Dashboard/Buttons.vue";
 import PageIconButtons from "@/Components/Page/Dashboard/IconButtons.vue";
@@ -101,7 +101,7 @@ const input = reactive({
                 <br /><br />
                 <PageIconButtons />
                 <br /><br />
-                <form action="#">
+                <!-- <form action="#">
                     <easy-card outlined color="default">
                         <template #header> Card Header </template>
 
@@ -110,6 +110,7 @@ const input = reactive({
                         <EasyFileUpload />
                         {{input.dateRange}}
                         <EasyRangeDatePicker v-model="input.dateRange" />
+                        <br /> <br />
                         {{ input.date }}
                         <EasySingleDatePicker v-model="input.date" />
                         <EasyMultiSelect :options="input.options" v-model="input.multiSelect" id="selectExample"
@@ -142,18 +143,18 @@ const input = reactive({
                         <template #footer> Card Footer </template>
                     </easy-card>
                 </form>
-                {{ input }}
+                {{ input }} -->
 
 
-                <span>Link</span> <br />
-                <easy-link-button class="m-1" small> Small Link </easy-link-button>
+                <!-- <span>Link</span> <br /> -->
+                <!-- <easy-link-button class="m-1" small> Small Link </easy-link-button>
                 <easy-link-button class="m-1" color="primary" rounded>
                     Primary Link
                 </easy-link-button>
                 <easy-link-button class="m-1" rounded color="danger" outlined elevate>
-                    Danger Outlined Link </easy-link-button><br /><br />
+                    Danger Outlined Link </easy-link-button><br /><br /> -->
 
-                <easy-card outlined color="default">
+                <easy-card color="default">
                     <template #header> Card Header </template>
                     Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry. Lorem Ipsum has been the industry's standard dummy text ever

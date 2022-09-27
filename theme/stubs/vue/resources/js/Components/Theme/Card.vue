@@ -1,10 +1,17 @@
 <script setup>
 import { onMounted } from "vue";
 import { useStyle } from "@/Composables/useStyle.js";
-const { colorType, isOutlined, setBorder, setBackground } = useStyle();
+const {
+  getTextType,
+  setTextColor,
+  getBackgroundType,
+  setBackground,
+  getOutlineType,
+  setOutline,
+} = useStyle();
 
 const props = defineProps({
-  elevate: {
+  elevated: {
     type: Boolean,
     required: false,
     default() {
@@ -25,12 +32,24 @@ const props = defineProps({
       return "";
     },
   },
+  seperated: {
+    type: Boolean,
+    required: false,
+    default() {
+      return false;
+    },
+  },
 });
 
-
 onMounted(() => {
-    colorType.value = props.color
-    isOutlined.value = props.outlined
+  getBackgroundType.value = props.outlined ? "transparent" : props.color;
+  getOutlineType.value = props.outlined ? props.color : "transparent";
+  getTextType.value = props.outlined
+    ? props.color
+    : props.color == "transparent" || props.color == "default"
+    ? ""
+    : "white";
+  console.log(getTextType.value);
 });
 
 // "hover:outline-blue-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-600/5"
@@ -50,7 +69,7 @@ onMounted(() => {
 //bg-blue-500 text-gray-200
 //bg-yellow-500 text-gray-200
 //bg-rose-500 text-white
-//bg-lime-500 text-white
+//bg-lime-500 text-white dark:outline-zinc-600
 //bg-transpanet
 //bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400
 
@@ -72,13 +91,13 @@ onMounted(() => {
 
 <template>
   <div
-    class="rounded-md bg-white dark:bg-zinc-800 outline outline-1"
-    :class="[props.elevate ? 'material-shadow' : '', setBorder]"
+    class="rounded-md bg-white dark:bg-zinc-800"
+    :class="[props.outlined ? setOutline : 'material-shadow']"
   >
     <div
       v-if="$slots.header"
       class="py-5 px-2 text-lg flex items-center rounded-t-md"
-      :class="setBackground"
+      :class="[props.seperated ? 'border-b' : '', setBackground, setTextColor]"
     >
       <slot name="header"></slot>
     </div>
@@ -87,18 +106,8 @@ onMounted(() => {
     </div>
     <div
       v-if="$slots.footer"
-      class="
-        flex
-        justify-end
-        text-right
-        rounded-b-md
-        py-5
-        px-2
-        text-lg
-        flex
-        items-center
-      "
-      :class="setBackground"
+      class="flex justify-end text-right rounded-b-md py-5 px-2 text-lg flex items-center"
+      :class="[props.seperated ? 'border-t' : '']"
     >
       <slot name="footer"></slot>
     </div>

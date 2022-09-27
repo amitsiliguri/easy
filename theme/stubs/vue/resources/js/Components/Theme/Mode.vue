@@ -28,5 +28,5 @@ const toggleClass = () => {
 
 </script>
 <template>
-    <easy-button @click="toggleTheme()" type="button" rounded elevate>Mode Switcher</easy-button>
+    <EasyButton type="button" label="Mode Switcher" @click="toggleTheme()" />
 </template>
