@@ -165,30 +165,30 @@ const iconSize = computed(() => {
   }[props.size.toString()];
 });
 // "hover:outline-blue-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-600/5"
-// "hover:outline-yellow-600 hover:text-yellow-600 dark:hover:text-yellow-400 hover:bg-yellow-600/5"
+// "hover:outline-amber-600 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-600/5"
 // "hover:outline-rose-600 hover:text-rose-600 dark:hover:text-rose-200 hover:bg-rose-600/5"
-// "hover:outline-lime-600 hover:text-lime-600 dark:hover:text-lime-400 hover:bg-lime-600/5"
+// "hover:outline-green-600 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-600/5"
 // "outline-transparent"
 // hover:outline-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400 hover:bg-zinc-600/5
 
 //outline-blue-500 text-blue-500
-//outline-yellow-500 text-yellow-500
+//outline-amber-500 text-amber-500
 //outline-rose-500 text-rose-500
-//outline-lime-500 text-lime-500
+//outline-green-500 text-green-500
 //outline-zinc-200 dark:outline-zinc-900 text-zinc-200 dark:text-zinc-900
 // outline-zinc-500 text-zinc-500
 
 //bg-blue-500 text-gray-200
-//bg-yellow-500 text-gray-200
+//bg-amber-500 text-gray-200
 //bg-rose-500 text-white
-//bg-lime-500 text-white
+//bg-green-500 text-white
 //bg-transpanet
 //bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400
 
 // hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white
-// hover:bg-yellow-600 dark:hover:bg-yellow-400 hover:text-white
+// hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white
 // hover:bg-rose-600 dark:hover:bg-rose-400 hover:text-white
-// hover:bg-lime-600 dark:hover:bg-lime-400 hover:text-white
+// hover:bg-green-600 dark:hover:bg-green-400 hover:text-white
 // hover:bg-zinc-900/5 dark:hover:text-white hover:text-gray-600
 // hover:bg-zinc-200 hover:text-gray-600 dark:bg-zinc-900 dark:hover:text-white
 

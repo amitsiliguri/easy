@@ -21,6 +21,11 @@ const toggleConfirmModal = (status) => {
                 reproduced in their exact original form, accompanied by English
                 versions from the 1914 translation by H. Rackham.</span>
         </template>
-        <template #footer> Modal Footer </template>
+        <template #footer> 
+            <easy-button label="Cancel" color="danger" bold class="mr-1"/>
+            <easy-button label="Reset" color="warning" bold class="mr-1"/>
+            <easy-button label="Submit" color="success" bold class="mr-1"/>
+            <!-- <span class="grow"></span> -->
+        </template>
     </easy-dialog-modal>
 </template>
