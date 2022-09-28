@@ -259,7 +259,7 @@ const isMonthSelected = (month) => {
             <EasyButton v-if="active === 'date'" :color="props.color" curve="full" type="button" @click="prevMonth()"
                 icon="left" />
             <EasyButton v-if="active === 'date'" :color="props.color" curve="full" type="button" @click="nextMonth()"
-                class="ml-1" icon="right" />
+                class="ml-2" icon="right" />
         </template>
         <table class="w-full table-fixed">
             <thead v-if="active === 'date'">

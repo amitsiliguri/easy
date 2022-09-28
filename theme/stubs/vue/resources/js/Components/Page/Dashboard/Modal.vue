@@ -13,7 +13,7 @@ const toggleConfirmModal = (status) => {
     <easy-button class="my-1" outlined elevated @click="toggleConfirmModal(!showConfirmModal)" label="Open Modal"/>
 
     <!-- <easy-dialog-modal title="Modal Title" icon="alert" color="transparent" :show="showConfirmModal" @close="toggleConfirmModal(false)"> -->
-        <easy-dialog-modal title="Modal Title" icon="alert" :show="showConfirmModal" @close="toggleConfirmModal(false)">
+        <easy-dialog-modal title="Modal Title" icon="alert" :show="showConfirmModal" color="transparent" outlined @close="toggleConfirmModal(false)">
         <template #content>
             <span class="text-justify">The standard chunk of Lorem Ipsum used since the 1500s is
                 reproduced below for those interested. Sections 1.10.32 and

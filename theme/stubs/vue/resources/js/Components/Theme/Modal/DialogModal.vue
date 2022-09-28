@@ -60,7 +60,7 @@ const close = () => {
                     <slot name="title">{{title}}</slot>
                 </span>
                 <template v-if="closeable">
-                    <EasyButton type="button" class="flex-none -my-3" curve="full" color="transparent" icon="close"
+                    <EasyButton type="button" class="flex-none -my-3" curve="full" :color="props.color" icon="close"
                         @click="close" />
                 </template>
             </template>

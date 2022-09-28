@@ -50,22 +50,15 @@ const props = defineProps({
 
 onMounted(() => {
   getBackgroundType.value = props.color;
-  setOutlineType();
+  getOutlineType.value = props.outlined
+    ? props.color === "transparent"
+      ? ""
+      : props.color 
+    : "transparent";;
   getTextType.value =
     props.color == "transparent" || props.color == "default" ? "" : "white";
 });
 
-const setOutlineType = () => {
-  getOutlineType.value = props.outlined
-    ? props.outlineColor
-      ? props.outlineColor === "transparent"
-        ? "default"
-        : props.outlineColor
-      : props.color === "transparent"
-      ? ""
-      : props.color
-    : "transparent";
-};
 // "hover:outline-blue-600 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-600/5"
 // "hover:outline-yellow-600 hover:text-yellow-600 dark:hover:text-yellow-400 hover:bg-yellow-600/5"
 // "hover:outline-rose-600 hover:text-rose-600 dark:hover:text-rose-200 hover:bg-rose-600/5"
