@@ -122,7 +122,7 @@ const leftPadding = computed(() => {
   return (!props.solo && props.icon !== '') ? 'pl-9' : ''
 });
 
-// ring-1 hover:ring-2  ring-zinc-400 dark:ring-zinc-600 focus:ring-2 
+// ring-1 ring-zinc-400 dark:ring-zinc-600 focus:ring-2 
 // hover:ring-zinc-900 dark:hover:ring-zinc-500
 // focus:ring-blue-600 dark:focus:ring-blue-400
 // focus:ring-amber-600 dark:focus:ring-amber-400
@@ -153,9 +153,7 @@ const leftPadding = computed(() => {
         :value="modelValue" @input="emitValue($event.target.value)" @focus="activeInput = true"
         @blur="activeInput = false" ref="input" />
       <easy-button v-if="!props.solo && showClearInput" class="absolute right-2 top-2" small color="transparent"
-        @click="clear()">
-        <easy-icons icon="close" :height="18" :width="18" class="text-orange-600" />
-      </easy-button>
+        @click="clear()" icon="close" />
     </div>
 
     <input-hint v-if="!props.solo" class="block mt-1" :hint="props.hint" />

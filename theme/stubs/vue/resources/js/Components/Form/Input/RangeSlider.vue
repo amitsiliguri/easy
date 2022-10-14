@@ -1,5 +1,7 @@
 <script setup>
 import { reactive, onMounted, watch } from "vue";
+import { useInputStyle } from "@/Composables/useInputStyle.js";
+const { setInputBgColor } = useInputStyle();
 const props = defineProps({
     modelValue: {
         type: Object,
@@ -60,6 +62,8 @@ watch(input.range, () => {
     trigger()
     emitValue()
 });
+
+// bg-blue-500 bg-amber-500 bg-rose-500 bg-green-500 bg-transpanet bg-zinc-500
 </script>
         
    
@@ -74,11 +78,11 @@ watch(input.range, () => {
                 :step="props.step" :min="props.min" :max="props.max" v-model="input.range.max">
             <div class="relative z-10 h-0.5">
                 <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-zinc-300 dark:bg-zinc-700"></div>
-                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-blue-500"
+                <div class="absolute z-20 top-0 bottom-0 rounded-md" :class="setInputBgColor"
                     :style="'right:' + input.maxthumb + '%; left:' + input.minthumb + '%'"></div>
-                <div class="absolute z-30  w-4 h-4 top-0 left-0 bg-blue-500 rounded-full -mt-2 -ml-2 shadow"
+                <div class="absolute z-30  w-4 h-4 top-0 left-0 rounded-full -mt-2 -ml-2 shadow" :class="setInputBgColor"
                     :style="'left: ' + input.minthumb + '%'"></div>
-                <div class="absolute z-30 w-4 h-4 top-0 right-0 bg-blue-500 rounded-full -mt-2 -mr-2 shadow"
+                <div class="absolute z-30 w-4 h-4 top-0 right-0 rounded-full -mt-2 -mr-2 shadow" :class="setInputBgColor"
                     :style="'right: ' + input.maxthumb + '%'"></div>
             </div>
         </div>

@@ -7,7 +7,7 @@ export function useInputStyle() {
   });
 
   const setInputHoverBorder = computed(() => {
-    return "hover:ring-2 hover:ring-zinc-900 dark:hover:ring-zinc-500";
+    return "hover:ring-zinc-900 dark:hover:ring-zinc-500";
   });
 
   const setInputFocusBorder = computed(() => {
@@ -35,10 +35,48 @@ export function useInputStyle() {
     }[usePage().props.value.theme.toString()];
   });
 
+  const setInputBgColor = computed(() => {
+    return {
+      primary: "bg-blue-500",
+      warning: "bg-amber-500",
+      danger: "bg-rose-500",
+      success: "bg-green-500",
+      transparent: "bg-transpanet",
+      default: "bg-zinc-500",
+    }[usePage().props.value.theme.toString()];
+  });
+
+  //only using for checkbox and radio
+  const setInputTextColor = computed(() => {
+    return {
+      primary: "text-blue-500",
+      warning: "text-amber-500",
+      danger: "text-rose-500",
+      success: "text-green-500",
+      transparent: "text-transpanet",
+      default: "text-zinc-500",
+    }[usePage().props.value.theme.toString()];
+  });
+
+  //only using for checkbox and radio
+  const setCheckedColor = computed(() => {
+    return {
+      primary: "checked:ring-blue-500",
+      warning: "checked:ring-amber-500",
+      danger: "checked:ring-rose-500",
+      success: "checked:ring-green-500",
+      transparent: "checked:ring-transpanet",
+      default: "checked:ring-zinc-500",
+    }[usePage().props.value.theme.toString()];
+  });
+
   return {
     setInputBorder,
     setInputHoverBorder,
     setInputFocusBorder,
-    setLabelActiveColor
+    setLabelActiveColor,
+    setInputBgColor,
+    setInputTextColor,
+    setCheckedColor
   };
 }

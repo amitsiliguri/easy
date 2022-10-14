@@ -4,7 +4,8 @@ import { computed } from "vue";
 import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
-
+import { useInputStyle } from "@/Composables/useInputStyle.js";
+const { setInputTextColor } = useInputStyle();
 const emit = defineEmits(["update:checked"]);
 
 const props = defineProps({
@@ -56,6 +57,8 @@ const proxyChecked = computed({
     emit("update:checked", val);
   },
 });
+
+// text-blue-500 text-amber-500 text-rose-500 text-green-500 text-transpanet text-zinc-500
 </script>
 
 <template>
@@ -68,13 +71,13 @@ const proxyChecked = computed({
         v-model="proxyChecked"
         class="
           rounded-sm
-          border-2 border-zinc-500
-          dark:border-zinc-100 dark:checked:border-indigo-500
+          border-2 border-zinc-500 checked:border-0
           bg-transparent
           focus:border-zinc-500
           w-5
           h-5
         "
+        :class="setInputTextColor"
       />
       <input-lebel v-if="!props.solo" :for="props.id" :label="props.label" />
     </div>

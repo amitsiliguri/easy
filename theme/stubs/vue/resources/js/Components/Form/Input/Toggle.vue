@@ -1,5 +1,7 @@
 <script setup>
 import { computed } from "vue";
+import { useInputStyle } from "@/Composables/useInputStyle.js";
+const { setInputBgColor } = useInputStyle();
 
 const props = defineProps({
   checked: {
@@ -56,10 +58,9 @@ const proxyChecked = computed({
           transition
           shadow-xl
         "
-        :class="{
-          'bg-blue-500 translate-x-full': props.checked,
-          'bg-white dark:bg-zinc-600': !props.checked,
-        }"
+        :class="[
+          (props.checked) ? setInputBgColor + ' translate-x-full' : 'bg-white dark:bg-zinc-600'
+        ]"
       ></div>
     </div>
 
