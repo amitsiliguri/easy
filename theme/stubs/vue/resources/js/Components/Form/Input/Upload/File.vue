@@ -3,7 +3,7 @@ import InputLebel from "@/Components/Form/Input/Label.vue";
 import InputError from "@/Components/Form/Input/Error.vue";
 import InputHint from "@/Components/Form/Input/Hint.vue";
 import EasyIcons from "@/Components/Theme/Icons.vue";
-import EasyButton from "@/Components/Theme/Button.vue";
+// import EasyButton from "@/Components/Theme/Button.vue";
 </script>
 
 <template>
@@ -16,10 +16,8 @@ import EasyButton from "@/Components/Theme/Button.vue";
             </label>
             <label for="file-upload" class="grow cursor-pointer px-2 py-1">No file choosen</label>
         </div>
-        <input id="file-upload" type="file" class="hidden">
+        <input id="file-upload" type="file" class="hidden" ref="fileUpload">
+        <input-hint class="block mt-1" hint="file input hint" />
+        <input-error class="block" message="file input error" />
     </fieldset>
-
-    <input-hint class="block mt-1" hint="file input hint" />
-    <input-error class="block" message="file input error" />
-
 </template>

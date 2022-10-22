@@ -108,14 +108,12 @@ const input = reactive({
                         <easy-toggle v-model:checked="input.toggle" class="my-4" />
 
                         <EasyFileUpload />
-                        {{input.dateRange}}
-                        <EasyRangeDatePicker v-model="input.dateRange" outlined/>
-                        <br /> <br />
-                        {{ input.date }}
+                        <EasyRangeDatePicker v-model="input.dateRange" outlined />
+                        <br />
                         <EasySingleDatePicker v-model="input.date" />
+                        <br />
                         <EasyMultiSelect :options="input.options" v-model="input.multiSelect" id="selectExample"
-                            name="selectExample" label="Some Select Label" class="my-4" />
-                        {{ input.multiSelect }}
+                            name="selectExample" label="Some Multi Select Label" class="my-4" />
                         <EasyCheckBoxes :options="input.options" v-model="input.checkboxGroup" id="radioGroupExample2"
                             name="radioGroupExample2" label="Checkbox group label" class="my-4" />
 
@@ -181,7 +179,7 @@ const input = reactive({
                 </easy-card>
                 <br />
                 <br />
-                
+
             </div>
         </div>
     </BreezeAuthenticatedLayout>

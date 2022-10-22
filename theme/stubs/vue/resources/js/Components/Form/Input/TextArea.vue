@@ -67,7 +67,7 @@ const emitValue = (value) => {
 };
 
 const highlight = () => {
-  input.value.focus();
+  inputTextArea.value.focus();
 };
 
 const clear = () => {
@@ -96,10 +96,11 @@ const clear = () => {
     <input-lebel :for="props.id" :label="props.label" :active="activeInput" />
     <div class="relative mt-1">
       <textarea class="bg-transparent block w-full rounded border-0"
-        :class="[setInputBorder, setInputHoverBorder, setInputFocusBorder, rightPadding, leftPadding]" :id="id" rows="4"
+        :class="[setInputBorder, setInputHoverBorder, setInputFocusBorder]" :id="id" rows="4"
         @input="emitValue($event.target.value)" :value="props.modelValue" @focus="activeInput = true"
         @blur="activeInput = false" ref="inputTextArea" />
-      <easy-button v-if="showClearInput" class="absolute right-2 top-2" small color="transparent" icon="close" @click="clear()" />
+      <easy-button v-if="showClearInput" class="absolute right-2 top-2" small color="transparent" icon="close"
+        @click="clear()" />
     </div>
 
     <input-hint class="block mt-1" :hint="props.hint" />

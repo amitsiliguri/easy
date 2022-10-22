@@ -115,7 +115,7 @@ const setChipPadding = () => {
 // text-sm min-w-[32px] min-h-[32px] px-2
 // text-base min-w-[48px] min-h-[48px] px-3
 
-// p-1 p-2 p-3 px-1 px-2 px-3 pl-1 pl-2 pl-3 pr-1 pr-2 pr-3
+// px-1.5 py-1 p-1 p-2 p-3 px-1 px-2 px-3 pl-1 pl-2 pl-3 pr-1 pr-2 pr-3
 
 </script>
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2022. All rights reserved.
  * See COPYING.txt for license details.
@@ -29,7 +30,6 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-
     }
 
     /**
@@ -43,17 +43,11 @@ class ThemeServiceProvider extends ServiceProvider
                 InstallTheme::class
             ]);
             $this->publishes([
-                __DIR__.'/../stubs/vue/resources/js' => resource_path('js'),
-                __DIR__.'/../stubs/vue/resources/css' => resource_path('css'),
-                __DIR__.'/../stubs/vue/resources/views' => resource_path('views'),
-                __DIR__.'/../stubs/vue/tailwind.config.js' => base_path('tailwind.config.js')
+                __DIR__ . '/../stubs/vue/resources/js' => resource_path('js'),
+                __DIR__ . '/../stubs/vue/resources/css' => resource_path('css'),
+                __DIR__ . '/../stubs/vue/resources/views' => resource_path('views'),
+                __DIR__ . '/../stubs/vue/tailwind.config.js' => base_path('tailwind.config.js')
             ], 'vue-theme');
-            $this->publishes([
-                __DIR__.'/../stubs/react/resources/js' => resource_path('js'),
-                __DIR__.'/../stubs/react/resources/css' => resource_path('css'),
-                __DIR__.'/../stubs/react/resources/views' => resource_path('views'),
-                __DIR__.'/../stubs/react/tailwind.config.js' => base_path('tailwind.config.js')
-            ], 'react-theme');
         }
     }
 

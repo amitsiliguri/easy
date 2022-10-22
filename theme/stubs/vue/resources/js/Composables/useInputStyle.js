@@ -70,6 +70,17 @@ export function useInputStyle() {
     }[usePage().props.value.theme.toString()];
   });
 
+  const setOutlineColor = computed(() => {
+    return {
+      primary: "outline-blue-600 dark:outline-blue-400",
+      warning: "outline-amber-600 dark:outline-amber-400",
+      danger: "outline-rose-600 dark:outline-rose-400",
+      success: "outline-green-600 dark:outline-green-400",
+      transparent: "outline-zinc-600 dark:outline-zinc-400",
+      default: "outline-zinc-600 dark:outline-zinc-400",
+    }[usePage().props.value.theme.toString()];
+  });
+
   return {
     setInputBorder,
     setInputHoverBorder,
@@ -77,6 +88,7 @@ export function useInputStyle() {
     setLabelActiveColor,
     setInputBgColor,
     setInputTextColor,
-    setCheckedColor
+    setCheckedColor,
+    setOutlineColor,
   };
 }

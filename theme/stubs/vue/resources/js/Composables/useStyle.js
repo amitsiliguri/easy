@@ -125,7 +125,7 @@ export function useStyle() {
 
   const setPadding = computed(() => {
     return {
-      sm: "px-1 py-0.5",
+      sm: "px-1.5 py-1",
       default: "px-2 py-1",
       lg: "px-3 py-1.5",
       smx: "px-1",
