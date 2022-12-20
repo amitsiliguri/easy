@@ -1,8 +1,13 @@
 <script setup>
-import { ref, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { usePage } from "@inertiajs/inertia-vue3";
 import EasyButton from '@/Components/Theme/Button.vue';
 
 const isDark = ref(false);
+
+onMounted(() => {
+    isDark.value = usePage().props.value.dark
+})
 
 onUnmounted(() => {
     if (isDark.value) {
@@ -28,5 +33,5 @@ const toggleClass = () => {
 
 </script>
 <template>
-    <EasyButton type="button" label="Mode Switcher" @click="toggleTheme()" />
+    <EasyButton type="button" curve="full" :icon="(isDark) ? 'dark' : 'light'" @click="toggleTheme()" />
 </template>
