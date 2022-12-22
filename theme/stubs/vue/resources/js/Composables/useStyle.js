@@ -55,7 +55,7 @@ export function useStyle() {
         danger: "outline-rose-500",
         success: "outline-green-500",
         transparent: "outline-transparent",
-        default: "outline-zinc-200",
+        default: "outline-zinc-200 dark:outline-zinc-600",
       }[outlineType.toString()]
     );
   });
@@ -87,7 +87,7 @@ export function useStyle() {
       success: "text-green-500",
       default: "text-zinc-500",
       transparent: "text-zinc-500",
-      white: "text-zinc-200",
+      white: "text-zinc-700 dark:text-zinc-300",
     }[textType.toString()];
   });
 
@@ -140,6 +140,17 @@ export function useStyle() {
     }[getPadding.value.toString()];
   });
 
+  const setBorderColor = computed(() => {
+    return {
+      primary: "border-blue-500",
+      warning: "border-amber-500",
+      danger: "border-rose-500",
+      success: "border-green-500",
+      transparent: "border-transparent",
+      default: "border-zinc-200 dark:border-zinc-600",
+    }[usePage().props.value.theme.toString()];
+  });
+
   return {
     getTextType,
     setTextColor,
@@ -156,5 +167,6 @@ export function useStyle() {
     setSize,
     getPadding,
     setPadding,
+    setBorderColor,
   };
 }

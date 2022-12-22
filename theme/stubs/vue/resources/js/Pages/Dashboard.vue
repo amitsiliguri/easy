@@ -25,6 +25,8 @@ import PageIconButtons from "@/Components/Page/Dashboard/IconButtons.vue";
 import PageModal from "@/Components/Page/Dashboard/Modal.vue";
 import PageBadge from "@/Components/Page/Dashboard/Badge.vue";
 import PageChip from "@/Components/Page/Dashboard/Chip.vue"
+import PageAccordion from "@/Components/Page/Dashboard/Accordion.vue"
+import PageCollapse from "@/Components/Page/Dashboard/Collapse.vue"
 
 import { Head } from "@inertiajs/inertia-vue3";
 
@@ -101,6 +103,10 @@ const input = reactive({
         <br /><br />
         <PageIconButtons />
         <br /><br />
+        <PageAccordion />
+        <br /><br />
+        <PageCollapse/>
+        <br /><br />
         <form action="#">
             <easy-card seperated>
                 <template #header> Card Header </template>
@@ -152,7 +158,7 @@ const input = reactive({
                 <easy-link-button class="m-1" rounded color="danger" outlined elevate>
                     Danger Outlined Link </easy-link-button><br /><br /> -->
 
-        <easy-card color="default">
+        <easy-card seperated>
             <template #header> Card Header </template>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -179,7 +185,7 @@ const input = reactive({
         </easy-card>
         <br />
         <br />
-
+        
 
 
     </BreezeAuthenticatedLayout>
