@@ -43,6 +43,7 @@ class ThemeServiceProvider extends ServiceProvider
                 InstallTheme::class
             ]);
             $this->publishes([
+                __DIR__.'/config/menu.php' => config_path('menu.php'),
                 __DIR__ . '/../stubs/vue/resources/js' => resource_path('js'),
                 __DIR__ . '/../stubs/vue/resources/css' => resource_path('css'),
                 __DIR__ . '/../stubs/vue/resources/views' => resource_path('views'),

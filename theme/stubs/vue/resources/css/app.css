@@ -49,12 +49,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* Track */
 .dark ::-webkit-scrollbar-track {
-    background: #18181B;
+    background: rgb(0, 0, 0, 0);
 }
 
 /* Handle */
 .dark ::-webkit-scrollbar-thumb {
-    background: #27272A;
+    background: #353538;
 }
 
 /* Handle on hover */

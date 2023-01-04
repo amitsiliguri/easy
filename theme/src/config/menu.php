@@ -1,129 +1,264 @@
 <?php
 
 return [
-    'dashboard' => [
-        'title' => 'Dashboard',
+    'introduction' => [
+        'title' => 'Itroduction',
         'icon' => 'dashboard',
         'sort-order' => 0,
-        'children' => []
+        'children' => [
+            'why' => [
+                'title' => 'Why Easy UI?',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'support' => [
+                'title' => 'Support',
+                'sort-order' => 10,
+                'children' => []
+            ],
+            'roadmap' => [
+                'title' => 'Road Map',
+                'sort-order' => 20,
+                'children' => []
+            ],
+        ]
     ],
-    'catalog' => [
-        'title' => 'Catalog',
+    'getting-started' => [
+        'title' => 'Getting Started',
         'icon' => 'catalog',
         'sort-order' => 10,
         'children' => [
-            'categories' => [
-                'title' => 'Categories',
+            'installation' => [
+                'title' => 'Installation',
                 'sort-order' => 0,
                 'children' => []
             ],
-            'products' => [
-                'title' => 'Products',
+            'faq' => [
+                'title' => 'FAQ',
                 'sort-order' => 10,
                 'children' => []
-            ],
-            'inventory-source' => [
-                'title' => 'Inventory Sources',
-                'sort-order' => 20,
-                'children' => []
-            ],
+            ]
         ]
     ],
-    'customer' => [
-        'title' => 'Customer',
+    'compoment' => [
+        'title' => 'Component',
         'icon' => 'customer',
         'sort-order' => 20,
         'children' => [
-            'all-customer' => [
-                'title' => 'All Customers',
+            'alert' => [
+                'title' => 'Alert',
                 'sort-order' => 0,
                 'children' => []
             ],
-            'customer-groups' => [
-                'title' => 'Customer groups',
+            'accordion' => [
+                'title' => 'Accordion',
                 'sort-order' => 10,
-                'children' => []
-            ]
-        ]
-    ],
-    'sales' => [
-        'title' => 'Sales',
-        'icon' => 'sales',
-        'sort-order' => 30,
-        'children' => [
-            'orders' => [
-                'title' => 'Orders',
-                'sort-order' => 0,
                 'children' => [
-                    'new' => [
-                        'title' => 'new',
+                    'single' => [
+                        'title' => 'Single',
                         'sort-order' => 10,
                         'children' => []
                     ],
-                    'invoice' => [
-                        'title' => 'invoice',
-                        'sort-order' => 20,
-                        'children' => []
-                    ],
-                    'shipment' => [
-                        'title' => 'In Shipment',
-                        'sort-order' => 30,
-                        'children' => []
-                    ],
-                    'delivered' => [
-                        'title' => 'Delivered',
-                        'sort-order' => 40,
+                    'multiple' => [
+                        'title' => 'Multiple',
+                        'sort-order' => 10,
                         'children' => []
                     ]
                 ]
             ],
-            'return' => [
-                'title' => 'Return',
+            'badge' => [
+                'title' => 'Badge',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'buton' => [
+                'title' => 'Buton',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'card' => [
+                'title' => 'Card',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'chip' => [
+                'title' => 'Chip',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'collapse' => [
+                'title' => 'Collapse',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'dropdown' => [
+                'title' => 'Dropdown',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'link' => [
+                'title' => 'Link',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'modal' => [
+                'title' => 'Modal',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'notification' => [
+                'title' => 'Notification',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'pagination' => [
+                'title' => 'Pagination',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'rating' => [
+                'title' => 'Rating',
+                'sort-order' => 0,
+                'children' => []
+            ],
+            'table' => [
+                'title' => 'Table',
                 'sort-order' => 10,
                 'children' => [
-                    'request' => [
-                        'title' => 'Request',
+                    'simple' => [
+                        'title' => 'Simple',
                         'sort-order' => 10,
                         'children' => []
                     ],
-                    'reject' => [
-                        'title' => 'Request rejected',
-                        'sort-order' => 20,
-                        'children' => []
-                    ],
-                    'accept' => [
-                        'title' => 'Request accepted',
-                        'sort-order' => 30,
-                        'children' => []
-                    ],
-                    'refund' => [
-                        'title' => 'Returned & Refund',
-                        'sort-order' => 40,
+                    'Dynamic' => [
+                        'title' => 'Dynamic',
+                        'sort-order' => 10,
                         'children' => []
                     ]
                 ]
             ],
-            'shipping-area' => [
-                'title' => 'Shipping Areas',
-                'sort-order' => 20,
+            'tabs' => [
+                'title' => 'Tabs',
+                'sort-order' => 0,
                 'children' => []
-            ]
+            ],
+
         ]
     ],
-    'marketing' => [
-        'title' => 'Marketing',
-        'icon' => 'marketing',
+    'form' => [
+        'title' => 'Form',
+        'icon' => 'customer',
         'sort-order' => 40,
         'children' => [
-            'coupon' => [
-                'title' => 'Coupon',
-                'sort-order' => 0,
-                'children' => []
+            'checkbox' => [
+                'title' => 'Check Box',
+                'sort-order' => 10,
+                'children' => [
+                    'single' => [
+                        'title' => 'Single',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'multiple' => [
+                        'title' => 'Multiple',
+                        'sort-order' => 10,
+                        'children' => []
+                    ]
+                ]
             ],
-            'category-discount' => [
-                'title' => 'Discount on categories',
+            'date-picker' => [
+                'title' => 'Date Picker',
+                'sort-order' => 10,
+                'children' => [
+                    'single' => [
+                        'title' => 'Single',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'multiple' => [
+                        'title' => 'Multiple',
+                        'sort-order' => 10,
+                        'children' => []
+                    ]
+                ]
+            ],
+            'input' => [
+                'title' => 'Input',
+                'sort-order' => 10,
+                'children' => [
+                    'text' => [
+                        'title' => 'Text',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'email' => [
+                        'title' => 'Email',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'password' => [
+                        'title' => 'Password',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'text-area' => [
+                        'title' => 'Text Area',
+                        'sort-order' => 10,
+                        'children' => []
+                    ]
+                ]
+            ],
+            'radio' => [
+                'title' => 'Radio Button',
                 'sort-order' => 10,
                 'children' => []
+            ],
+            'select' => [
+                'title' => 'Select',
+                'sort-order' => 10,
+                'children' => [
+                    'single' => [
+                        'title' => 'Single',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'multiple' => [
+                        'title' => 'Multiple',
+                        'sort-order' => 10,
+                        'children' => []
+                    ]
+                ]
+            ],
+            'time-picker' => [
+                'title' => 'Time picker',
+                'sort-order' => 10,
+                'children' => []
+            ],
+            'toggle' => [
+                'title' => 'Toggle',
+                'sort-order' => 10,
+                'children' => []
+            ],
+            'upload' => [
+                'title' => 'Upload',
+                'sort-order' => 10,
+                'children' => [
+                    'single' => [
+                        'title' => 'Single',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'multiple' => [
+                        'title' => 'Multiple',
+                        'sort-order' => 10,
+                        'children' => []
+                    ],
+                    'multi-media' => [
+                        'title' => 'Multi Media',
+                        'sort-order' => 10,
+                        'children' => []
+                    ]
+                ]
             ]
         ]
     ],

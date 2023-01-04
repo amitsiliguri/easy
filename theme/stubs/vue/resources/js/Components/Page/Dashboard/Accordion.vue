@@ -4,9 +4,9 @@ import EasyAccordionItem from "@/Components/Theme/Accordion/Item.vue";
 import EasyAccordionHeader from "@/Components/Theme/Accordion/Header.vue";
 import EasyAccordionBody from "@/Components/Theme/Accordion/Body.vue";
 </script>
-            
+
 <template>
-    <EasyAccordionCover outlined>
+    <EasyAccordionCover flat transparent>
         <EasyAccordionItem :item-key="1" seperated>
             <EasyAccordionHeader>
                 Accordion Item #1
@@ -47,5 +47,4 @@ import EasyAccordionBody from "@/Components/Theme/Accordion/Body.vue";
             </EasyAccordionBody>
         </EasyAccordionItem>
     </EasyAccordionCover>
-
 </template>

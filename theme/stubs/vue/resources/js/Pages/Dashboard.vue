@@ -92,12 +92,13 @@ const input = reactive({
         </template>
 
 
-
-        <PageChip />
+        <PageModal />
+        <div style="height:2000px"></div>
+        <!-- <PageChip />
         <br /><br />
         <PageBadge />
         <br /><br />
-        <PageModal />
+       
         <br /><br />
         <PageButtons />
         <br /><br />
@@ -147,7 +148,7 @@ const input = reactive({
                 <template #footer> Card Footer </template>
             </easy-card>
         </form>
-        {{ input }}
+        {{ input }} -->
 
 
         <!-- <span>Link</span> <br /> -->
@@ -158,7 +159,7 @@ const input = reactive({
                 <easy-link-button class="m-1" rounded color="danger" outlined elevate>
                     Danger Outlined Link </easy-link-button><br /><br /> -->
 
-        <easy-card seperated>
+        <!-- <easy-card seperated>
             <template #header> Card Header </template>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -184,7 +185,7 @@ const input = reactive({
             <template #footer> Card Footer </template>
         </easy-card>
         <br />
-        <br />
+        <br /> -->
         
 
 

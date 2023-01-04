@@ -70,7 +70,7 @@ class HandleInertiaRequests extends Middleware
                     return $request->session()->get('warning');
                 }
             ],
-            // 'menu' => config('menu'),
+            'menu' => config('menu'),
             'theme' => 'danger',
             'dark' => true
         ]);
