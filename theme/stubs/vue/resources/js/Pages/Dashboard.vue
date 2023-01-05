@@ -23,6 +23,7 @@ import EasyCard from "@/Components/Theme/Card.vue";
 import PageButtons from "@/Components/Page/Dashboard/Buttons.vue";
 import PageIconButtons from "@/Components/Page/Dashboard/IconButtons.vue";
 import PageModal from "@/Components/Page/Dashboard/Modal.vue";
+import PageTab from "@/Components/Page/Dashboard/Tab.vue";
 import PageBadge from "@/Components/Page/Dashboard/Badge.vue";
 import PageChip from "@/Components/Page/Dashboard/Chip.vue"
 import PageAccordion from "@/Components/Page/Dashboard/Accordion.vue"
@@ -93,6 +94,8 @@ const input = reactive({
 
 
         <PageModal />
+        <br /><br />
+        <PageTab />
         <div style="height:2000px"></div>
         <!-- <PageChip />
         <br /><br />

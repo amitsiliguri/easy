@@ -17,14 +17,15 @@ const contentHeight = (height) => {
         <div class="h-16 px-4 flex items-center">
             <EasyButton color="transparent" type="button" curve="full" icon="hamburger" @click="show = !show"
                 class="lg:hidden" />
-            <span class="ml-16">App Bar</span>
+            <span class="ml-16">Easy UI</span>
             <div class="grow"></div>
             <ModeSwitcher />
             <Profile />
         </div>
 
         <div class="flex gap-4">
-            <aside class="w-80 lg:w-96 absolute top-0 bottom-0 lg:static flex z-20 duration-200" :class="(show) ? 'left-0' : '-left-80 lg:-left-96'">
+
+            <aside class="w-80 absolute top-0 bottom-0 z-20 duration-200 flex lg:w-96 lg:static lg:flex-none" :class="(show) ? 'left-0' : '-left-80'">
                 <Menu />
             </aside>
             <div class="z-10 fixed top-0 bottom-0 left-0 right-0 pointer bg-black opacity-50 dark:opacity-80 opacity-25"
