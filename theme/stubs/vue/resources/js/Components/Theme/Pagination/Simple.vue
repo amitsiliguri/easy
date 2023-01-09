@@ -47,9 +47,9 @@ const setLink = (url) => {
 <template>
     <div class="">
         <EasyLinkButton class="m-1" :href="setLink(previousPageUrl)"
-                :elevated="elevated" :curve="props.curve" :size="props.size" icon="left" :outlined="outlined" color="default"/>
+                :elevated="elevated" :curve="props.curve" :size="props.size" icon="left" :outlined="outlined" color="default" title="previous link"/>
         <EasyLinkButton class="m-1" :href="setLink(nextPageUrl)"
-                :elevated="elevated" :curve="props.curve" :size="props.size" icon="right" :outlined="outlined" color="default"/>
+                :elevated="elevated" :curve="props.curve" :size="props.size" icon="right" :outlined="outlined" color="default" title="next link"/>
     </div>
 </template>
   

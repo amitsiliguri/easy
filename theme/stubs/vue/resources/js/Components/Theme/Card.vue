@@ -46,6 +46,13 @@ const props = defineProps({
       return false;
     },
   },
+  padding: {
+    type: Boolean,
+    required: false,
+    default() {
+      return false;
+    },
+  },
 });
 
 onMounted(() => {
@@ -108,7 +115,7 @@ onMounted(() => {
     >
       <slot name="header"></slot>
     </div>
-    <div class="py-5 px-2">
+    <div :class="{'py-5 px-2': props.padding}">
       <slot></slot>
     </div>
     <div

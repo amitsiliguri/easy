@@ -3,61 +3,78 @@
 @tailwind utilities;
 
 [type="checkbox"]:focus {
-    --tw-ring-offset-width: 0 !important;
-    --tw-ring-shadow: none !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-shadow: none !important;
 }
 
-[type='radio']:checked {
-    background-image: none !important;
+[type="radio"]:checked {
+  background-image: none !important;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 .material-shadow {
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #F3F4F6;
+  background: #f3f4f6;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #E4E4E7;
-    border-radius: 10px;
+  background: #e4e4e7;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #cbcbcc;
+  background: #cbcbcc;
 }
 
 /**--------------------------------------------------**/
 
 /* Track */
 .dark ::-webkit-scrollbar-track {
-    background: rgb(0, 0, 0, 0);
+  background: rgb(0, 0, 0, 0);
 }
 
 /* Handle */
 .dark ::-webkit-scrollbar-thumb {
-    background: #353538;
+  background: #353538;
 }
 
 /* Handle on hover */
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: #52525B;
+  background: #52525b;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .responsive-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+@media screen and (max-width: 767px) {
+    .responsive-table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }

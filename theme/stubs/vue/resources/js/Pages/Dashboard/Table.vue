@@ -1,8 +1,34 @@
 <script setup>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+import { reactive } from "vue";
 import { Head } from "@inertiajs/inertia-vue3";
+import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import EasyPagination from "@/Components/Theme/Pagination/Detail.vue";
-import EasySimplePagination from "@/Components/Theme/Pagination/Simple.vue";
+import EasyAdvanceTable from "@/Components/Theme/Table/Advance.vue";
+const head = reactive([
+    {
+        align: "text-left",
+        label: "ID",
+        column: "id",
+        show: true, //column visibility
+        searchable: true, //can search data in column
+        type: "text" //rearch type
+    },
+    {
+        align: "text-left",
+        label: "Name",
+        column: "name",
+    },
+    {
+        align: "text-left",
+        label: "Email",
+        column: "email",
+    },
+    {
+        align: "text-left",
+        label: "Phone",
+        column: "phone",
+    }
+]);
 </script>
 
 <template>
@@ -14,9 +40,8 @@ import EasySimplePagination from "@/Components/Theme/Pagination/Simple.vue";
                 Dynamic Table
             </h2>
         </template>
-        <EasyPagination :links="$page.props.detail.links" />
-        <EasySimplePagination curve="full"
-            :previousPageUrl="$page.props.simple.prev_page_url" :nextPageUrl="$page.props.simple.next_page_url" />
-
+        <EasyAdvanceTable :head="head" :data="$page.props.simple" />
+        <EasyPagination :links="$page.props.detail.links" class="justify-center my-6"/>
+            
     </BreezeAuthenticatedLayout>
 </template>

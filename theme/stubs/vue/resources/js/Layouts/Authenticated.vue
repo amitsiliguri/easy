@@ -25,7 +25,7 @@ const contentHeight = (height) => {
 
         <div class="flex gap-4">
 
-            <aside class="w-80 absolute top-0 bottom-0 z-20 duration-200 flex lg:w-96 lg:static lg:flex-none" :class="(show) ? 'left-0' : '-left-80'">
+            <aside class="w-72 absolute top-0 bottom-0 z-20 duration-200 flex 2xl:w-80 lg:static lg:flex-none" :class="(show) ? 'left-0' : '-left-72'">
                 <Menu />
             </aside>
             <div class="z-10 fixed top-0 bottom-0 left-0 right-0 pointer bg-black opacity-50 dark:opacity-80 opacity-25"
