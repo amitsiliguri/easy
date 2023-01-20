@@ -4,10 +4,6 @@
 
 This package provides moderen and user friendly components to easily start with laravel projects without spending time on creating theme
 
-### References
-
-https://github.com/amitsiliguri/easy/tree/main/theme
-
 ### Requirements
 
 1. Laravel 9
