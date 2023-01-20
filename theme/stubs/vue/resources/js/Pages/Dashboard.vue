@@ -25,55 +25,55 @@ import PageIconButtons from "@/Components/Page/Dashboard/IconButtons.vue";
 import PageModal from "@/Components/Page/Dashboard/Modal.vue";
 import PageTab from "@/Components/Page/Dashboard/Tab.vue";
 import PageBadge from "@/Components/Page/Dashboard/Badge.vue";
-import PageChip from "@/Components/Page/Dashboard/Chip.vue"
-import PageAccordion from "@/Components/Page/Dashboard/Accordion.vue"
-import PageCollapse from "@/Components/Page/Dashboard/Collapse.vue"
+import PageChip from "@/Components/Page/Dashboard/Chip.vue";
+import PageAccordion from "@/Components/Page/Dashboard/Accordion.vue";
+import PageCollapse from "@/Components/Page/Dashboard/Collapse.vue";
 
 import { Head } from "@inertiajs/inertia-vue3";
 
 const input = reactive({
-    toggle: true,
-    range: {
-        min: 410,
-        max: 670,
+  toggle: true,
+  range: {
+    min: 410,
+    max: 670,
+  },
+  textArea: "",
+  text: "",
+  number: "",
+  singleCheckBox: true,
+  time: "",
+  radioGroup: "",
+  checkboxGroup: [],
+  select: "",
+  multiSelect: ["value1", "value6", "value4", "value3"],
+  options: [
+    {
+      value: "value1",
+      label: "label 1",
     },
-    textArea: "",
-    text: "",
-    number: "",
-    singleCheckBox: true,
-    time: "",
-    radioGroup: "",
-    checkboxGroup: [],
-    select: "",
-    multiSelect: ["value1", "value6", "value4", "value3"],
-    options: [
-        {
-            value: "value1",
-            label: "label 1",
-        },
-        {
-            value: "value2",
-            label: "label 2",
-        },
-        {
-            value: "value3",
-            label: "label 3",
-        },
-        {
-            value: "value4",
-            label: "label 4",
-        },
-        {
-            value: "value5",
-            label: "label 5",
-        },
-        {
-            value: "value6",
-            label: "label 6",
-        },
-    ],
-    date: "",
-    dateRange: { "start": "2022-9-20", "end": "2022-10-12" },
+    {
+      value: "value2",
+      label: "label 2",
+    },
+    {
+      value: "value3",
+      label: "label 3",
+    },
+    {
+      value: "value4",
+      label: "label 4",
+    },
+    {
+      value: "value5",
+      label: "label 5",
+    },
+    {
+      value: "value6",
+      label: "label 6",
+    },
+  ],
+  date: "",
+  dateRange: { start: "2022-9-20", end: "2022-10-12" },
 });
 
 // const toggleConfirmModal = (status) => {
@@ -82,26 +82,31 @@ const input = reactive({
 </script>
 
 <template>
+  <Head title="Dashboard" />
 
-    <Head title="Dashboard" />
+  <BreezeAuthenticatedLayout>
+    <template #header>
+      <h2>Dashboard</h2>
+    </template>
 
-    <BreezeAuthenticatedLayout>
-        <template #header>
-            <h2>
-                Dashboard
-            </h2>
-        </template>
-
-
-        <PageModal />
-        <br /><br />
-        <PageTab />
-        <div style="height:2000px"></div>
-        <!-- <PageChip />
+    <PageModal />
+    <br /><br />
+    <PageTab />
+    <br /><br />
+    <EasyMultiSelect
+      :options="input.options"
+      v-model="input.multiSelect"
+      id="selectExample"
+      name="selectExample"
+      label="Some Multi Select Label"
+      class="my-4"
+    />
+    <div style="height: 2000px"></div>
+    <!-- <PageChip />
         <br /><br />
         <PageBadge />
         <br /><br />
-       
+
         <br /><br />
         <PageButtons />
         <br /><br />
@@ -122,8 +127,7 @@ const input = reactive({
                 <br />
                 <EasySingleDatePicker v-model="input.date" />
                 <br />
-                <EasyMultiSelect :options="input.options" v-model="input.multiSelect" id="selectExample"
-                    name="selectExample" label="Some Multi Select Label" class="my-4" />
+
                 <EasyCheckBoxes :options="input.options" v-model="input.checkboxGroup" id="radioGroupExample2"
                     name="radioGroupExample2" label="Checkbox group label" class="my-4" />
 
@@ -153,16 +157,15 @@ const input = reactive({
         </form>
         {{ input }} -->
 
-
-        <!-- <span>Link</span> <br /> -->
-        <!-- <easy-link-button class="m-1" small> Small Link </easy-link-button>
+    <!-- <span>Link</span> <br /> -->
+    <!-- <easy-link-button class="m-1" small> Small Link </easy-link-button>
                 <easy-link-button class="m-1" color="primary" rounded>
                     Primary Link
                 </easy-link-button>
                 <easy-link-button class="m-1" rounded color="danger" outlined elevate>
                     Danger Outlined Link </easy-link-button><br /><br /> -->
 
-        <!-- <easy-card seperated>
+    <!-- <easy-card seperated>
             <template #header> Card Header </template>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -189,8 +192,5 @@ const input = reactive({
         </easy-card>
         <br />
         <br /> -->
-        
-
-
-    </BreezeAuthenticatedLayout>
+  </BreezeAuthenticatedLayout>
 </template>

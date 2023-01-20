@@ -25,6 +25,12 @@ const props = defineProps({
             return [];
         },
     },
+    selectedData: {
+        type: Array,
+        default() {
+            return [];
+        },
+    },
 });
 </script>
 
@@ -33,7 +39,7 @@ const props = defineProps({
         <template #header>
             <h2>Data table</h2>
         </template>
-        <EasyTable :head="props.head" :data="props.data.data" show-select/>
+        <EasyTable :head="props.head" :data="props.data.data" :show-select="props.showSelect"/>
         <template #footer>
             <EasySimplePagination curve="full"
             :previousPageUrl="props.data.prev_page_url" :nextPageUrl="props.data.next_page_url" />

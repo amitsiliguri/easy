@@ -26,7 +26,7 @@ class InstallTheme extends Command
      *
      * @var string
      */
-    protected $signature = 'easy:theme {stack=vue : The development stack that should be installed (react,vue)}';
+    protected $signature = 'easy:theme';
 
     /**
      * The console command description.

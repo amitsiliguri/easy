@@ -48,7 +48,7 @@ class ThemeServiceProvider extends ServiceProvider
                 __DIR__ . '/../stubs/vue/resources/css' => resource_path('css'),
                 __DIR__ . '/../stubs/vue/resources/views' => resource_path('views'),
                 __DIR__ . '/../stubs/vue/tailwind.config.js' => base_path('tailwind.config.js')
-            ], 'vue-theme');
+            ], 'theme');
         }
     }
 

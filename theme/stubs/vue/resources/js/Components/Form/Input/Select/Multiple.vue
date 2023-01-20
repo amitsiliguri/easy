@@ -110,7 +110,7 @@ const selectedLabel = () => {
       'dark:hover:outline-zinc-500',
       'rounded',
       'cursor-pointer',
-      'fllex',
+      'flex',
     ]" :trigger-active-classes="[
       setOutlineColor,
       'outline-2',
